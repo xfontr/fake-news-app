@@ -5,7 +5,6 @@
   margin: 0 auto;
   max-width: breakpoints.$small;
   padding: spacings.$medium;
-  border: 1px solid red;
 
   @media (min-width: breakpoints.$small) {
     max-width: breakpoints.$medium;
