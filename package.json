@@ -23,7 +23,9 @@
     "test:dev": "react-scripts test",
     "test-coverage": "react-scripts test --coverage --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "sass": "npx sass src/sass/index.scss public/css/index.css",
+    "sass:dev": "npx sass src/sass/index.scss public/css/index.css --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +46,15 @@
     ]
   },
   "devDependencies": {
-    "husky": "^8.0.1"
+    "husky": "^8.0.1",
+    "sass": "^1.55.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.tsx",
+      "src/**/*.ts",
+      "!src/index.tsx",
+      "!src/setupTests.ts"
+    ]
   }
 }
