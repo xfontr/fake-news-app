@@ -1,6 +1,6 @@
 type News = {
   id: number;
-  title: number;
+  title: string;
   description: string;
 };
 

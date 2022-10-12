@@ -11,6 +11,6 @@ const newsSlice = createSlice({
   },
 });
 
-export const projectsReducer = newsSlice.reducer;
+export const newsReducer = newsSlice.reducer;
 
 export const { loadAll: loadAllActionCreator } = newsSlice.actions;
