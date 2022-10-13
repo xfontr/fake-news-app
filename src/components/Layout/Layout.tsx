@@ -4,10 +4,10 @@ import Advertisement from "../Advertisement/Advertisement";
 const BasicLayout = ({ children }: PropsWithChildren): JSX.Element => (
   <>
     <header className="header">
-      <h1>Lorem ipsum</h1>
+      <span>Raging news</span>
     </header>
     <main className="main">{children}</main>
-    <footer className="footer">For Cleverpy 2022</footer>
+    <footer className="footer">For Cleverpy © 2022</footer>
   </>
 );
 
