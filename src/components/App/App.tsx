@@ -1,9 +1,3 @@
-import Sidebar from "../Sidebar/Sidebar";
-
-const App = (): JSX.Element => (
-  <div className="app">
-    Hello, Cleverpy <Sidebar />
-  </div>
-);
+const App = (): JSX.Element => <div className="app">Hello, Cleverpy</div>;
 
 export default App;

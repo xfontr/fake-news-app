@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../test-utils/customTestingLibrary";
 import Sidebar from "./Sidebar";
 
 describe("Given a Sidebar component", () => {
