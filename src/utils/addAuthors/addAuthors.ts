@@ -1,5 +1,5 @@
-import Author from "../types/Author";
-import News from "../types/News";
+import Author from "../../types/Author";
+import News from "../../types/News";
 
 const addAuthors = (news: News[], users: Author[]) =>
   news.map((article) => ({

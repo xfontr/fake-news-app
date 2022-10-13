@@ -2,6 +2,7 @@ import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { renderHook } from "../test-utils/customTestingLibrary";
 import { mockAuthorList } from "../test-utils/mocks/mockAuthor";
 import { mockNewsList } from "../test-utils/mocks/mockNews";
+import { capitalizeNews } from "../utils/capitalize/capitalize";
 import useNews from "./useNews";
 
 const mockUseAppDispatch = jest.fn();
@@ -20,10 +21,12 @@ describe("Given a getAll function returned from a useNews function", () => {
         },
       } = renderHook(useNews);
 
-      const expectedAction = loadAllActionCreator([
-        { ...mockNewsList[0], author: mockAuthorList[0].name },
-        { ...mockNewsList[1], author: mockAuthorList[1].name },
-      ]);
+      const expectedAction = loadAllActionCreator(
+        capitalizeNews([
+          { ...mockNewsList[0], author: mockAuthorList[0].name },
+          { ...mockNewsList[1], author: mockAuthorList[1].name },
+        ])
+      );
 
       await getAll();
 
