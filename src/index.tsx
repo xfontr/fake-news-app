@@ -6,6 +6,7 @@ import "@fontsource/manrope/600.css";
 import "@fontsource/manrope/800.css";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
