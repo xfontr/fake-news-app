@@ -5,6 +5,7 @@ import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { useAppDispatch } from "../app/hooks";
 import Author from "../types/Author";
 import endpoints from "../config/endpoints";
+import addAuthors from "../utils/addAuthors";
 
 const useNews = () => {
   const dispatch = useAppDispatch();
@@ -15,10 +16,7 @@ const useNews = () => {
       const { data: news } = await get<INews[]>(endpoints.getAllNews);
       const { data: users } = await get<Author[]>(endpoints.getAllAuthors);
 
-      const newsWithAuthor = news.map((article) => ({
-        ...article,
-        author: users.find((author) => author.id === article.userId)!.name,
-      }));
+      const newsWithAuthor = addAuthors(news, users);
 
       dispatch(loadAllActionCreator(newsWithAuthor as INews[]));
     } catch (error) {}

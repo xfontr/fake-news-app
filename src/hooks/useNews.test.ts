@@ -1,5 +1,6 @@
 import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { renderHook } from "../test-utils/customTestingLibrary";
+import { mockAuthorList } from "../test-utils/mocks/mockAuthor";
 import { mockNewsList } from "../test-utils/mocks/mockNews";
 import useNews from "./useNews";
 
@@ -12,24 +13,43 @@ jest.mock("../app/hooks", () => ({
 
 describe("Given a getAll function returned from a useNews function", () => {
   describe("When called and the api responds with a list of news", () => {
-    test("Then it should load the store with all the news", async () => {
+    test("Then it should load the store with all the news with the author names", async () => {
       const {
         result: {
           current: { getAll },
         },
       } = renderHook(useNews);
 
-      const action = loadAllActionCreator(mockNewsList);
+      const expectedAction = loadAllActionCreator([
+        { ...mockNewsList[0], author: mockAuthorList[0].name },
+        { ...mockNewsList[1], author: mockAuthorList[1].name },
+      ]);
 
       await getAll();
 
-      expect(mockUseAppDispatch).toHaveBeenCalledWith(action);
+      expect(mockUseAppDispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
 
-  describe("When called and the api responds with an error", () => {
+  describe("When called and the news api responds with an error", () => {
     test("Then it should do nothing", async () => {
       mockNewsList[0].title = "error";
+
+      const {
+        result: {
+          current: { getAll },
+        },
+      } = renderHook(useNews);
+
+      await getAll();
+
+      expect(mockUseAppDispatch).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("When called and the users api responds with an error", () => {
+    test("Then it should do nothing", async () => {
+      mockAuthorList[0].name = "error";
 
       const {
         result: {
