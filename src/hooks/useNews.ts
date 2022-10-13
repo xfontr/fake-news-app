@@ -7,7 +7,7 @@ import { useAppDispatch } from "../app/hooks";
 
 const useNews = () => {
   const dispatch = useAppDispatch();
-  const { get } = api();
+  const { get } = api;
 
   const getAll = useCallback(async () => {
     try {

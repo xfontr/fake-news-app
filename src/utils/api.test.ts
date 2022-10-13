@@ -13,7 +13,7 @@ describe("Given a get function returned by an api function", () => {
       const url = "";
       const config = {};
 
-      const { get } = api();
+      const { get } = api;
 
       get(url);
 
@@ -28,7 +28,7 @@ describe("Given a get function returned by an api function", () => {
         headers: {},
       };
 
-      const { get } = api();
+      const { get } = api;
 
       get(url, config);
 
