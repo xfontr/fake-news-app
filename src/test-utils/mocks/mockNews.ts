@@ -5,6 +5,7 @@ export const mockNews: News = {
   id: 1,
   title: "News title",
   body: "Random news description",
+  author: "Ervin Howell",
 };
 
 export const mockNewsList: News[] = [
