@@ -1,0 +1,30 @@
+import { renderHook } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
+import { loadAllActionCreator } from "../store/slices/newsSlice";
+import { mockNewsList } from "../test-utils/mocks/mockNews";
+import useNews from "./useNews";
+
+const mockUseAppDispatch = jest.fn();
+
+jest.mock("../app/hooks", () => ({
+  ...jest.requireActual("../app/hooks"),
+  useAppDispatch: () => mockUseAppDispatch,
+}));
+
+describe("Given a getAll function returned from a useNews function", () => {
+  describe("When called and the api responds with a list of news", () => {
+    test("Then it should load the store with all the news", async () => {
+      const {
+        result: {
+          current: { getAll },
+        },
+      } = renderHook(useNews);
+
+      const action = loadAllActionCreator(mockNewsList);
+
+      await getAll();
+
+      expect(mockUseAppDispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
