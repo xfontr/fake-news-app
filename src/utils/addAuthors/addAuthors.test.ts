@@ -1,5 +1,5 @@
-import { mockAuthorList } from "../test-utils/mocks/mockAuthor";
-import { mockNewsList } from "../test-utils/mocks/mockNews";
+import { mockAuthorList } from "../../test-utils/mocks/mockAuthor";
+import { mockNewsList } from "../../test-utils/mocks/mockNews";
 import addAuthors from "./addAuthors";
 
 describe("Given an addAuthors function", () => {
