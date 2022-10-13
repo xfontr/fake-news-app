@@ -6,16 +6,22 @@ interface ButtonProps
   to?: string;
 }
 
-const Button = ({ children, to, ...rest }: ButtonProps) => (
-  <>
-    {to ? (
-      <button {...rest}>{children}</button>
-    ) : (
-      <a {...rest} href={to}>
-        {children}
-      </a>
-    )}
-  </>
-);
+const Button = ({ children, to, ...rest }: ButtonProps) => {
+  const props = {
+    ...rest,
+    className: `button ${rest.className}`,
+  };
+
+  return (
+    <>
+      {to || <button {...props}>{children}</button>}
+      {to && (
+        <a {...props} href={to}>
+          {children}
+        </a>
+      )}
+    </>
+  );
+};
 
 export default Button;
