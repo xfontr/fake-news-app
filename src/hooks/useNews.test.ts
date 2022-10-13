@@ -27,4 +27,20 @@ describe("Given a getAll function returned from a useNews function", () => {
       expect(mockUseAppDispatch).toHaveBeenCalledWith(action);
     });
   });
+
+  describe("When called and the api responds with an error", () => {
+    test("Then it should do nothing", async () => {
+      mockNewsList[0].title = "error";
+
+      const {
+        result: {
+          current: { getAll },
+        },
+      } = renderHook(useNews);
+
+      await getAll();
+
+      expect(mockUseAppDispatch).not.toHaveBeenCalled();
+    });
+  });
 });
