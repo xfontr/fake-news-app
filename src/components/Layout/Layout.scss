@@ -1,7 +1,18 @@
 @use "../../sass/variables/spacings";
+@use "../../sass/variables/colors";
+
+.header {
+  display: flex;
+  align-items: center;
+
+  height: 5rem;
+  color: colors.$secondary;
+  font-weight: bold;
+}
 
 .main {
   display: flex;
+  flex-wrap: wrap;
 
   &__content {
     width: 75%;
