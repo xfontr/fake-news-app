@@ -5,7 +5,7 @@ describe("Given a Layout component", () => {
   describe("When instantiated with a text 'Hello'", () => {
     test("Then it should show the main app layout and said text", () => {
       const children = "Hello";
-      const header = "Raging news";
+      const header = "FakeNews";
       const footer = "For Cleverpy © 2022";
 
       render(<Layout>{children}</Layout>);

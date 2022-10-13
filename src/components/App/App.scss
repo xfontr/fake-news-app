@@ -4,7 +4,7 @@
 .app {
   margin: 0 auto;
   max-width: breakpoints.$small;
-  padding: spacings.$medium;
+  padding: 0 spacings.$medium;
 
   @media (min-width: breakpoints.$small) {
     max-width: breakpoints.$medium;
