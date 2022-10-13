@@ -1,9 +1,11 @@
 import { useCallback } from "react";
-import environment from "../data/environment";
 import INews from "../types/News";
 import api from "../utils/api";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { useAppDispatch } from "../app/hooks";
+import Author from "../types/Author";
+import endpoints from "../config/endpoints";
+import addAuthors from "../utils/addAuthors";
 
 const useNews = () => {
   const dispatch = useAppDispatch();
@@ -11,9 +13,12 @@ const useNews = () => {
 
   const getAll = useCallback(async () => {
     try {
-      const { data: news } = await get<INews[]>(`${environment.apiUrl}/posts`);
+      const { data: news } = await get<INews[]>(endpoints.getAllNews);
+      const { data: users } = await get<Author[]>(endpoints.getAllAuthors);
 
-      dispatch(loadAllActionCreator(news));
+      const newsWithAuthor = addAuthors(news, users);
+
+      dispatch(loadAllActionCreator(newsWithAuthor as INews[]));
     } catch (error) {}
   }, [dispatch, get]);
 

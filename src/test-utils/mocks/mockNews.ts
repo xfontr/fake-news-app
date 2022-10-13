@@ -9,5 +9,10 @@ export const mockNews: News = {
 
 export const mockNewsList: News[] = [
   { ...mockNews },
-  { ...mockNews, id: 2, title: "News title 2" },
+  { ...mockNews, userId: 2, id: 2, title: "News title 2" },
 ];
+
+export const mockNewsWithAuthor: News = {
+  ...mockNews,
+  author: "Ervin Howell",
+};
