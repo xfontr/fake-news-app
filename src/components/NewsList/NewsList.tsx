@@ -1,4 +1,4 @@
-import INews from "../../types/INews";
+import INews from "../../types/News";
 import News from "../News/News";
 
 type NewsListProps = {
@@ -6,10 +6,10 @@ type NewsListProps = {
 };
 
 const NewsList = ({ news }: NewsListProps): JSX.Element => (
-  <section className="news">
-    <ul className="news__list">
+  <section className="news-list">
+    <ul className="news-list__list">
       {news.map((news) => (
-        <li>
+        <li className="news-list__news">
           <News key={news.id} news={news} />
         </li>
       ))}

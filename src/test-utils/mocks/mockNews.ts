@@ -1,4 +1,4 @@
-import INews from "../../types/INews";
+import INews from "../../types/News";
 
 export const mockNews: INews = {
   userId: 1,

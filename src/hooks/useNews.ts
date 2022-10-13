@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import environment from "../data/environment";
-import INews from "../types/INews";
+import INews from "../types/News";
 import api from "../utils/api";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { useAppDispatch } from "../app/hooks";

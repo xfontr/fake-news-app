@@ -1,0 +1,9 @@
+@use "../../sass/variables/spacings";
+
+.news-list {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: spacings.$big;
+  }
+}
