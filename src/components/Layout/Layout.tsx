@@ -1,6 +1,12 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
+import PageInformation from "../../types/PageInformation";
 import Advertisement from "../Advertisement/Advertisement";
 import PageHeading from "../PageHeading/PageHeading";
+
+type PageLayoutProps = {
+  children: ReactNode;
+  pageInformation: PageInformation;
+};
 
 export const Layout = ({ children }: PropsWithChildren): JSX.Element => (
   <>
@@ -12,15 +18,12 @@ export const Layout = ({ children }: PropsWithChildren): JSX.Element => (
   </>
 );
 
-export const PageLayout = ({ children }: PropsWithChildren): JSX.Element => (
+export const PageLayout = ({
+  children,
+  pageInformation,
+}: PageLayoutProps): JSX.Element => (
   <>
-    <PageHeading
-      heading={{
-        title: "Come see the latest news",
-        subtitle:
-          "We gather the freshest and most recent news in Barcelona, totally unopinionated.",
-      }}
-    />
+    <PageHeading heading={pageInformation} />
     <div className="main__content">{children}</div>
     <aside className="main__sidebar">
       <Advertisement className="container--sticky" />

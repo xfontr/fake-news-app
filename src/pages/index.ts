@@ -1,8 +1,8 @@
 import { lazy } from "react";
 import paths from "../config/paths";
-import Routes from "../types/Routes";
+import RouteType from "../types/RouteType";
 
-const routes: Routes = [
+const routes: RouteType[] = [
   {
     path: paths.root,
     navigate: paths.news,

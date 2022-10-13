@@ -1,6 +1,6 @@
 import PageInformation from "./PageInformation";
 
-export interface RouteType {
+interface RouteType {
   path: string;
   name?: string;
   navigate?: string;
@@ -8,6 +8,4 @@ export interface RouteType {
   pageInformation?: PageInformation;
 }
 
-type Routes = RouteType[];
-
-export default Routes;
+export default RouteType;
