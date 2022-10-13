@@ -1,6 +1,6 @@
-import actualAxios, { AxiosStatic, AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-const api = (axios: AxiosStatic = actualAxios) => ({
+const api = () => ({
   get: (url: string, config: AxiosRequestConfig<{}> = {}) =>
     axios.get(url, config),
 });
