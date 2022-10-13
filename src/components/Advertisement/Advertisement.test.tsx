@@ -1,5 +1,5 @@
 import { render, screen } from "../../test-utils/customTestingLibrary";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Advertisement";
 
 describe("Given a Sidebar component", () => {
   describe("When instantiated", () => {
