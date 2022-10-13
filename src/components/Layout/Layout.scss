@@ -1,8 +1,11 @@
+@use "../../sass/variables/spacings";
+
 .main {
   display: flex;
 
   &__content {
     width: 75%;
+    padding-right: spacings.$big;
   }
 
   &__sidebar {

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import environment from "../data/environment";
-import News from "../types/News";
+import INews from "../types/INews";
 import api from "../utils/api";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { useAppDispatch } from "../app/hooks";
@@ -11,7 +11,7 @@ const useNews = () => {
 
   const getAll = useCallback(async () => {
     try {
-      const { data: news } = await get<News[]>(`${environment.apiUrl}/posts`);
+      const { data: news } = await get<INews[]>(`${environment.apiUrl}/posts`);
 
       dispatch(loadAllActionCreator(news));
     } catch (error) {}

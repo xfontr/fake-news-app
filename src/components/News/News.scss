@@ -1,0 +1,23 @@
+@use "../../sass/variables/spacings";
+@use "../../sass/variables/colors";
+
+.news {
+  width: 100%;
+  padding: spacings.$big;
+  background-color: colors.$secondary;
+  border-radius: spacings.$rad-big;
+
+  &__author {
+    color: colors.$typography--lighter;
+  }
+
+  &__title {
+    margin-top: spacings.$small;
+    margin-bottom: spacings.$small;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
