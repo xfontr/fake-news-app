@@ -1,23 +1,39 @@
 import { render, screen } from "../../test-utils/customTestingLibrary";
-import Sidebar from "./Advertisement";
+import Advertisement from "./Advertisement";
 
-describe("Given a Sidebar component", () => {
+describe("Given an Advertisement component", () => {
   describe("When instantiated", () => {
-    test("Then it should show a sidebar with a title, a body and a button", () => {
+    test("Then it should show an advertisement with a title, a body and a button", () => {
       const title = "Lorem ipsum nemo";
       const body =
         "Velit neque libero incidunt itaque impedit vitae quam, architecto autem reprehenderit?";
       const button = "Lorem now";
 
-      render(<Sidebar />);
+      render(<Advertisement />);
 
-      const sidebar = [
+      const advertisement = [
         screen.getByRole("heading", { name: title, level: 3 }),
         screen.getByText(body),
         screen.getByRole("button", { name: button }),
       ];
 
-      sidebar.forEach((node) => expect(node).toBeInTheDocument());
+      advertisement.forEach((node) => expect(node).toBeInTheDocument());
+    });
+  });
+
+  describe("When instantiated with a sticky class", () => {
+    test("Then it should have the sticky style properties, while preserving the previous ones", () => {
+      const props = {
+        className: "container--sticky",
+        "data-testid": "advertisement",
+      };
+      const expectedClasses = `container ${props.className}`;
+
+      render(<Advertisement {...props} />);
+
+      const advertisement = screen.getByTestId(props["data-testid"]);
+
+      expect(advertisement.getAttribute("class")).toBe(expectedClasses);
     });
   });
 });

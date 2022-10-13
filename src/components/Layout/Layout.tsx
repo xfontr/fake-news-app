@@ -16,7 +16,7 @@ const Layout = ({ children }: PropsWithChildren): JSX.Element => (
     <BasicLayout>
       <div className="main__content">{children}</div>
       <aside className="main__sidebar">
-        <Advertisement isSticky={true} />
+        <Advertisement className="container--sticky" />
       </aside>
     </BasicLayout>
   </>

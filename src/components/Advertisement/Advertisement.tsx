@@ -1,9 +1,9 @@
-type AdvertisementProps = {
-  isSticky?: boolean;
-};
+import { HTMLAttributes } from "react";
 
-const Advertisement = ({ isSticky }: AdvertisementProps): JSX.Element => (
-  <div className={`container${isSticky ? " container--sticky" : ""}`}>
+const Advertisement = ({
+  ...rest
+}: HTMLAttributes<HTMLDivElement>): JSX.Element => (
+  <div {...{ ...rest, className: `container ${rest.className}` }}>
     <h3 className="container__title">Lorem ipsum nemo</h3>
     <p className="container__body">
       Velit neque libero incidunt itaque impedit vitae quam, architecto autem
