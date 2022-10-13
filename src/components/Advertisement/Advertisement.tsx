@@ -1,4 +1,5 @@
 import { HTMLAttributes } from "react";
+import Button from "../Button/Button";
 
 const Advertisement = ({
   ...rest
@@ -9,7 +10,7 @@ const Advertisement = ({
       Velit neque libero incidunt itaque impedit vitae quam, architecto autem
       reprehenderit?
     </p>
-    <button className="container__cta">Lorem now</button>
+    <Button className="container__cta">Lorem now</Button>
   </div>
 );
 
