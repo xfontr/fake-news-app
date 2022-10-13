@@ -1,0 +1,27 @@
+@use "../../sass/variables/colors";
+@use "../../sass/variables/spacings";
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 1.8rem;
+  border-radius: spacings.$rad-small;
+  border: 1px solid transparent;
+
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  background-color: colors.$typography;
+  color: colors.$primary;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: colors.$primary;
+    color: colors.$typography;
+    border-color: colors.$typography;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

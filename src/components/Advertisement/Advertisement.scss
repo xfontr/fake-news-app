@@ -6,6 +6,7 @@
   padding: spacings.$big;
   box-shadow: 10px 10px 30px 10px rgba(0, 0, 0, 0.1);
   background-color: colors.$primary;
+  border-radius: spacings.$rad-big;
 
   &--sticky {
     position: sticky;
