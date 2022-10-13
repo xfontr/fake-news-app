@@ -1,5 +1,4 @@
 import { renderHook } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { mockNewsList } from "../test-utils/mocks/mockNews";
 import useNews from "./useNews";
@@ -25,6 +24,22 @@ describe("Given a getAll function returned from a useNews function", () => {
       await getAll();
 
       expect(mockUseAppDispatch).toHaveBeenCalledWith(action);
+    });
+  });
+
+  describe("When called and the api responds with an error", () => {
+    test("Then it should do nothing", async () => {
+      mockNewsList[0].title = "error";
+
+      const {
+        result: {
+          current: { getAll },
+        },
+      } = renderHook(useNews);
+
+      await getAll();
+
+      expect(mockUseAppDispatch).not.toHaveBeenCalled();
     });
   });
 });
