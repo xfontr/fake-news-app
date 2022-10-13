@@ -1,14 +1,23 @@
 import { rest } from "msw";
-import environment from "../../data/environment";
+import endpoints from "../../config/endpoints";
+import { mockAuthorList } from "../mocks/mockAuthor";
 import { mockNewsList } from "../mocks/mockNews";
 
 const handlers = [
-  rest.get(`${environment.apiUrl}/posts`, (_, res, ctx) => {
+  rest.get(endpoints.getAllNews, (_, res, ctx) => {
     if (mockNewsList[0].title === "error") {
       return res(ctx.status(400), ctx.json({ error: "Something went wrong" }));
     }
 
     return res(ctx.status(200), ctx.json(mockNewsList));
+  }),
+
+  rest.get(endpoints.getAllAuthors, (_, res, ctx) => {
+    if (mockAuthorList[0].name === "error") {
+      return res(ctx.status(400), ctx.json({ error: "Something went wrong" }));
+    }
+
+    return res(ctx.status(200), ctx.json(mockAuthorList));
   }),
 ];
 
