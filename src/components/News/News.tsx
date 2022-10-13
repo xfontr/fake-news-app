@@ -1,4 +1,4 @@
-import INews from "../../types/INews";
+import INews from "../../types/News";
 import Button from "../Button/Button";
 
 type NewsProps = {

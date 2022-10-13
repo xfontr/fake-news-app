@@ -1,11 +1,11 @@
-import { mockNews } from "../../test-utils/mocks/mockNews";
+import { mockNewsList } from "../../test-utils/mocks/mockNews";
 import Layout from "../Layout/Layout";
-import News from "../News/News";
+import NewsList from "../NewsList/NewsList";
 
 const App = (): JSX.Element => (
   <div className="app">
     <Layout>
-      <News news={mockNews} />
+      <NewsList news={mockNewsList} />
     </Layout>
   </div>
 );

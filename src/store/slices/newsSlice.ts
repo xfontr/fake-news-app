@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import INews from "../../types/INews";
+import INews from "../../types/News";
 
 const newsInitialState: INews[] = [];
 
