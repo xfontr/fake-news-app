@@ -1,4 +1,4 @@
-import NewsPage from "../../pages/NewsPage";
+import NewsPage from "../../pages/NewsPage/NewsPage";
 import { Layout, PageLayout } from "../Layout/Layout";
 import { Routes, Route, Navigate } from "react-router-dom";
 

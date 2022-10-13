@@ -1,9 +1,13 @@
 // import { reactRender } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
-import { useAppDispatch } from "../app/hooks";
-import { loadAllActionCreator } from "../store/slices/newsSlice";
-import { render, screen, renderHook } from "../test-utils/customTestingLibrary";
-import { mockNewsList } from "../test-utils/mocks/mockNews";
+import { useAppDispatch } from "../../app/hooks";
+import { loadAllActionCreator } from "../../store/slices/newsSlice";
+import {
+  render,
+  screen,
+  renderHook,
+} from "../../test-utils/customTestingLibrary";
+import { mockNewsList } from "../../test-utils/mocks/mockNews";
 import NewsPage from "./NewsPage";
 
 describe("Given a NewsPage component", () => {
