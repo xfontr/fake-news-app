@@ -1,4 +1,4 @@
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/extend-expect";
 import { server } from "./test-utils/mockServiceWorker/server";
 
 /* Mock Service Worker (MSW) */
