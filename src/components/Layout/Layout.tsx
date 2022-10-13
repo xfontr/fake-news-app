@@ -7,7 +7,7 @@ const BasicLayout = ({ children }: PropsWithChildren): JSX.Element => (
       <h1>Lorem ipsum</h1>
     </header>
     <main className="main">{children}</main>
-    <footer className="footer">Cleverpy 2022</footer>
+    <footer className="footer">For Cleverpy 2022</footer>
   </>
 );
 
@@ -16,7 +16,7 @@ const Layout = ({ children }: PropsWithChildren): JSX.Element => (
     <BasicLayout>
       <div className="main__content">{children}</div>
       <aside className="main__sidebar">
-        <Advertisement />
+        <Advertisement isSticky={true} />
       </aside>
     </BasicLayout>
   </>
