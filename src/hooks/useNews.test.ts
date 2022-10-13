@@ -1,5 +1,5 @@
-import { renderHook } from "@testing-library/react";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
+import { renderHook } from "../test-utils/customTestingLibrary";
 import { mockNewsList } from "../test-utils/mocks/mockNews";
 import useNews from "./useNews";
 
