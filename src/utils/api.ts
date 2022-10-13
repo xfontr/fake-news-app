@@ -1,8 +1,10 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 const api = () => ({
-  get: (url: string, config: AxiosRequestConfig<{}> = {}) =>
-    axios.get(url, config),
+  get: <T>(
+    url: string,
+    config: AxiosRequestConfig<{}> = {}
+  ): Promise<AxiosResponse<T>> => axios.get<T>(url, config),
 });
 
 export default api;
