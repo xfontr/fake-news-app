@@ -16,7 +16,7 @@
   transition: 0.3s ease;
 
   &:hover {
-    background-color: colors.$primary;
+    background-color: transparent;
     color: colors.$typography;
     border-color: colors.$typography;
   }

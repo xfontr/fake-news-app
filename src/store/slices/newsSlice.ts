@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import News from "../../types/News";
+import INews from "../../types/INews";
 
-const newsInitialState: News[] = [];
+const newsInitialState: INews[] = [];
 
 const newsSlice = createSlice({
   name: "news",
   initialState: newsInitialState,
   reducers: {
-    loadAll: (_, { payload }: PayloadAction<News[]>) => [...payload],
+    loadAll: (_, { payload }: PayloadAction<INews[]>) => [...payload],
   },
 });
 
