@@ -19,5 +19,6 @@
   &__options {
     display: flex;
     justify-content: flex-end;
+    gap: spacings.$medium;
   }
 }
