@@ -21,7 +21,7 @@ const useForm = (schema: FormSchema) => {
     setValues({ ...values, [id]: value });
   };
 
-  const inputProps = (
+  const loadProps = (
     inputData: FullAttributes,
     value: string | number,
     onChange = handleChange
@@ -36,7 +36,7 @@ const useForm = (schema: FormSchema) => {
     onChange,
   });
 
-  return { values, inputProps };
+  return { values, loadProps };
 };
 
 export default useForm;
