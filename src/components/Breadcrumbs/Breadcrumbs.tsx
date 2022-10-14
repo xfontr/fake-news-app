@@ -4,6 +4,7 @@ import paths from "../../config/paths";
 const Breadcrumbs = (): JSX.Element => {
   const { pathname } = useLocation();
   const userPaths = pathname.split("/");
+  userPaths.splice(0, 1);
 
   return (
     <div className="breadcrumbs">
@@ -13,10 +14,10 @@ const Breadcrumbs = (): JSX.Element => {
 
       {userPaths.map((path, index) =>
         index === userPaths.length - 1 ? (
-          `/${path}`
+          ` / ${path}`
         ) : (
           <Link key={path} to={path}>
-            {path}
+            {` / ${path}`}
           </Link>
         )
       )}
