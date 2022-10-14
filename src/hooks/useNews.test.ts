@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
 import { renderHook } from "../test-utils/customTestingLibrary";
 import { mockAuthorList } from "../test-utils/mocks/mockAuthor";
@@ -28,7 +29,9 @@ describe("Given a getAll function returned from a useNews function", () => {
         ])
       );
 
-      await getAll();
+      await act(() => {
+        getAll();
+      });
 
       expect(mockUseAppDispatch).toHaveBeenCalledWith(expectedAction);
     });
@@ -44,7 +47,9 @@ describe("Given a getAll function returned from a useNews function", () => {
         },
       } = renderHook(useNews);
 
-      await getAll();
+      await act(() => {
+        getAll();
+      });
 
       expect(mockUseAppDispatch).not.toHaveBeenCalled();
     });
@@ -60,7 +65,9 @@ describe("Given a getAll function returned from a useNews function", () => {
         },
       } = renderHook(useNews);
 
-      await getAll();
+      await act(() => {
+        getAll();
+      });
 
       expect(mockUseAppDispatch).not.toHaveBeenCalled();
     });
