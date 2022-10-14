@@ -17,7 +17,6 @@ const updateNewsForm: FormSchema = [
     label: "Description",
     id: "body",
     type: "text",
-    initialValue: "Lorem ipsum",
     renderAs: "textarea",
   },
 ];
