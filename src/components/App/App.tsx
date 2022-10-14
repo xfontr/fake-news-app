@@ -1,22 +1,14 @@
-import NewsPage from "../../pages/NewsPage";
-import { Layout, PageLayout } from "../Layout/Layout";
-import { Routes, Route, Navigate } from "react-router-dom";
+import routes from "../../pages/index";
+import { Layout } from "../Layout/Layout";
+import { Suspense } from "react";
+import LoadRoutes from "../LoadRoutes/LoadRoutes";
 
 const App = (): JSX.Element => (
   <div className="app">
     <Layout>
-      <Routes>
-        <Route path="/" element={<Navigate to="/news" />} />
-        <Route
-          path="/news"
-          element={
-            <PageLayout>
-              <NewsPage />
-            </PageLayout>
-          }
-        />
-        <Route path="*" element={<Navigate to="/news" />} />
-      </Routes>
+      <Suspense>
+        <LoadRoutes routes={routes} />
+      </Suspense>
     </Layout>
   </div>
 );

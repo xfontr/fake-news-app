@@ -1,5 +1,6 @@
 import { render, screen } from "../../test-utils/customTestingLibrary";
 import { Layout, PageLayout } from "./Layout";
+import routes from "../../pages/index";
 
 describe("Given a Layout and PageLayout components", () => {
   describe("When instantiated with a text 'Hello'", () => {
@@ -7,17 +8,18 @@ describe("Given a Layout and PageLayout components", () => {
       const children = "Hello";
       const header = "FakeNews";
       const footer = "For Cleverpy © 2022";
-      const pageTitle = "Come see the latest news";
 
       render(
         <Layout>
-          <PageLayout>{children}</PageLayout>
+          <PageLayout pageInformation={routes[1].pageInformation!}>
+            {children}
+          </PageLayout>
         </Layout>
       );
 
       const sidebar = screen.getByRole("button", { name: "Lorem now" });
       const pageHeading = screen.getByRole("heading", {
-        name: pageTitle,
+        name: routes[1].pageInformation!.title,
         level: 1,
       });
 

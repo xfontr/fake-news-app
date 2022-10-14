@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useAppSelector } from "../app/hooks";
-import NewsList from "../components/NewsList/NewsList";
-import useNews from "../hooks/useNews";
+import { useAppSelector } from "../../app/hooks";
+import NewsList from "../../components/NewsList/NewsList";
+import useNews from "../../hooks/useNews";
 
 const NewsPage = (): JSX.Element => {
   const { getAll } = useNews();
