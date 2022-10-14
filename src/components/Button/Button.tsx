@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
@@ -14,11 +15,11 @@ const Button = ({ children, to, ...rest }: ButtonProps) => {
 
   return (
     <>
-      {to || <button {...props}>{children}</button>}
+      {!to && <button {...props}>{children}</button>}
       {to && (
-        <a {...props} href={to}>
+        <Link {...props} to={to}>
           {children}
-        </a>
+        </Link>
       )}
     </>
   );
