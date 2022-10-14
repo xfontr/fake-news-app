@@ -19,7 +19,7 @@ const routes: RouteType[] = [
   },
   {
     path: paths.notFound,
-    Page: lazy(() => import("../pages/NewsPage/NewsPage")),
+    Page: lazy(() => import("../pages/NotFoundPage/NotFoundPage")),
     pageInformation: {
       title: "Page not found (404)",
       subtitle: "We couldn't find what you are looking for :(",
