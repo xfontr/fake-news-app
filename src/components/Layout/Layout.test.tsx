@@ -25,7 +25,7 @@ describe("Given a Layout and PageLayout components", () => {
 
       const layout = [
         screen.getByText(children),
-        screen.getByText(header),
+        screen.getAllByText(header)[0],
         screen.getByText(footer),
         sidebar,
         pageHeading,
