@@ -14,7 +14,7 @@ type ExtraAttributes = Partial<{
   renderAs: "textarea";
 }>;
 
-interface FullAttributes extends BasicAttributes, ExtraAttributes {
+export interface FullAttributes extends BasicAttributes, ExtraAttributes {
   optionalData?: OptionalAttributes;
 }
 
