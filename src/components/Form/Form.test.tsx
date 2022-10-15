@@ -42,4 +42,22 @@ describe("Given a Form component", () => {
       expect(numericInput).toHaveValue(schema[0].initialValue);
     });
   });
+
+  describe("When instantiated with any class", () => {
+    test("Then it should preserve its original class and the passed one", () => {
+      const className = "form--test";
+      const expectedClasses = `form ${className}`;
+
+      render(
+        <Form
+          {...{ loadProps, values, schema, className }}
+          data-testid="form"
+        />
+      );
+
+      const button = screen.getByTestId("form");
+
+      expect(button.getAttribute("class")).toBe(expectedClasses);
+    });
+  });
 });
