@@ -60,6 +60,32 @@ describe("Given an UpdatePage component", () => {
       expect(description).toHaveValue(mockNewsList[0].body);
     });
 
+    describe("And the user fills the form", () => {
+      test("Then the fields values should change", async () => {
+        const typedValue = "Hello";
+
+        render(<UpdatePage />);
+
+        const [name, author, description] = [
+          screen.getByLabelText("Article name") as HTMLInputElement,
+          screen.getByLabelText("Author") as HTMLInputElement,
+          screen.getByLabelText("Description") as HTMLInputElement,
+        ];
+
+        fireEvent.change(name, { target: { value: "" } });
+        fireEvent.change(author, { target: { value: "" } });
+        fireEvent.change(description, { target: { value: "" } });
+
+        await userEvent.type(name, typedValue);
+        await userEvent.type(author, typedValue);
+        await userEvent.type(description, typedValue);
+
+        [name, author, description].forEach((field) =>
+          expect(field).toHaveValue(typedValue)
+        );
+      });
+    });
+
     describe("And the user fills and submits the form", () => {
       test("Then it should prevent default the submit action of the form", () => {
         render(<UpdatePage />);
