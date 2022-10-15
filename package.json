@@ -24,14 +24,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "sass": "npx sass src/sass/index.scss public/css/index.css",
+    "sass:dev": "npx sass src/sass/index.scss public/css/index.css --watch",
+    "build": "react-scripts build && sass",
     "test": "react-scripts test --watchAll=false",
     "test:dev": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
-    "sass": "npx sass src/sass/index.scss public/css/index.css",
-    "sass:dev": "npx sass src/sass/index.scss public/css/index.css --watch"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [

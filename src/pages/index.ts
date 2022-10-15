@@ -18,6 +18,15 @@ const routes: RouteType[] = [
     },
   },
   {
+    path: paths.update,
+    name: "Update",
+    Page: lazy(() => import("../pages/UpdatePage/UpdatePage")),
+    pageInformation: {
+      title: "Update the news",
+      subtitle: "Update the selected article to your linking.",
+    },
+  },
+  {
     path: paths.notFound,
     Page: lazy(() => import("../pages/NotFoundPage/NotFoundPage")),
     pageInformation: {
