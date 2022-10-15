@@ -6,7 +6,10 @@ type BasicAttributes = {
   type: React.HTMLInputTypeAttribute;
 };
 
-type OptionalAttributes = Omit<Partial<HTMLAttributes<HTMLInputElement>>, "id">;
+type OptionalAttributes = Omit<
+  Partial<HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>>,
+  "id"
+>;
 
 type ExtraAttributes = Partial<{
   initialValue: string | number;

@@ -23,6 +23,7 @@ button,
 input,
 textarea {
   font: inherit;
+  outline: none;
 }
 
 ul {
@@ -43,4 +44,11 @@ h2 {
 h1 {
   font-size: 3.5rem;
   margin: spacings.$medium 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

@@ -10,7 +10,7 @@ interface ButtonProps
 const Button = ({ children, to, ...rest }: ButtonProps) => {
   const props = {
     ...rest,
-    className: `button ${rest.className}`,
+    className: `button${rest.className ? ` ${rest.className}` : ""}`,
   };
 
   return (
