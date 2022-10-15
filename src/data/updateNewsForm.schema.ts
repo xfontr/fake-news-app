@@ -3,7 +3,7 @@ import FormSchema from "../types/FormSchema";
 const updateNewsForm: FormSchema = [
   {
     label: "Article name",
-    id: "articleName",
+    id: "title",
     type: "text",
     initialValue: "Sunt aut facere",
   },

@@ -1,6 +1,7 @@
 import updateNewsForm from "../../data/updateNewsForm.schema";
 import { mockNews, mockNewsList } from "../../test-utils/mocks/mockNews";
-import { getCurrentNews, setSchema } from "./updateUtils";
+import News from "../../types/News";
+import { getCurrentNews, getUpdatedNews, setSchema } from "./updateUtils";
 
 describe("Given a getCurrentNews function", () => {
   describe("When called with a list of news and a valid news ID", () => {
@@ -51,6 +52,27 @@ describe("Given a setSchema function", () => {
       const returnedSchema = setSchema(undefined, updateNewsForm);
 
       expect(returnedSchema).toStrictEqual(expectedSchema);
+    });
+  });
+});
+
+describe("Given a getUpdatedNews function", () => {
+  describe("When called with news and a set of values", () => {
+    test("Then it should return the same news but with its values updated", () => {
+      const mockValues = {
+        title: "false title",
+        body: "false body",
+        author: "false author",
+      };
+
+      const expectedUpdatedNews: News = {
+        ...mockNews,
+        ...mockValues,
+      };
+
+      const updatedNews = getUpdatedNews(mockNews, mockValues);
+
+      expect(updatedNews).toStrictEqual(expectedUpdatedNews);
     });
   });
 });

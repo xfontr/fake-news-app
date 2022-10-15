@@ -1,13 +1,20 @@
+import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 import paths from "../../config/paths";
 import updateNewsForm from "../../data/updateNewsForm.schema";
 import useForm from "../../hooks/useForm";
-import { getCurrentNews, setSchema } from "../../utils/updateUtils/updateUtils";
+import { updateActionCreator } from "../../store/slices/newsSlice";
+import {
+  getCurrentNews,
+  getUpdatedNews,
+  setSchema,
+} from "../../utils/updateUtils/updateUtils";
 
 const UpdatePage = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const { news } = useAppSelector((state) => state);
   const { id } = useParams();
 
@@ -16,10 +23,18 @@ const UpdatePage = (): JSX.Element => {
 
   const { loadProps, values } = useForm(schema);
 
+  const handleUpdate = (event: SyntheticEvent): void => {
+    event.preventDefault();
+
+    dispatch(updateActionCreator(getUpdatedNews(currentNews!, values)));
+  };
+
   return (
     <section className="update">
       {currentNews ? (
-        <Form {...{ loadProps, values, schema }} />
+        <Form {...{ loadProps, values, schema }} onSubmit={handleUpdate}>
+          <Button>Update</Button>
+        </Form>
       ) : (
         <div>
           <span className="update__information">

@@ -8,8 +8,8 @@ const NewsPage = (): JSX.Element => {
   const { news } = useAppSelector((state) => state);
 
   useEffect(() => {
-    getAll();
-  }, [getAll]);
+    news.length || getAll();
+  }, [getAll, news]);
 
   return (
     <>{news.length ? <NewsList news={news} /> : <span>Loading...</span>}</>

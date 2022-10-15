@@ -15,6 +15,7 @@ interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
 const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => (
   <form
     {...rest}
+    data-testid="form"
     className={`form${rest.className ? ` ${rest.className}` : ""}`}
   >
     {schema.map((field) => (
