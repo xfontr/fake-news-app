@@ -11,6 +11,8 @@ const newsSlice = createSlice({
     delete: (state, { payload }: PayloadAction<number>) => [
       ...state.filter((news) => news.id !== payload),
     ],
+    update: (state, { payload }: PayloadAction<INews>) =>
+      state.map((news) => (news.id === payload.id ? payload : news)),
   },
 });
 
@@ -18,3 +20,4 @@ export const newsReducer = newsSlice.reducer;
 
 export const { loadAll: loadAllActionCreator } = newsSlice.actions;
 export const { delete: deleteActionCreator } = newsSlice.actions;
+export const { update: updateActionCreator } = newsSlice.actions;
