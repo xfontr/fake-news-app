@@ -5,20 +5,7 @@ import Form from "../../components/Form/Form";
 import paths from "../../config/paths";
 import updateNewsForm from "../../data/updateNewsForm.schema";
 import useForm from "../../hooks/useForm";
-import FormSchema from "../../types/FormSchema";
-import News from "../../types/News";
-
-const getCurrentNews = (id: number, allNews: News[]): News | undefined =>
-  allNews.find((news) => news.id === id);
-
-const setSchema = (
-  news: News | undefined,
-  updateSchema: FormSchema
-): FormSchema => [
-  { ...updateSchema[0], initialValue: news ? news.title : "" },
-  { ...updateSchema[1], initialValue: news ? news.author : "" },
-  { ...updateSchema[2], initialValue: news ? news.body : "" },
-];
+import { getCurrentNews, setSchema } from "../../utils/updateUtils/updateUtils";
 
 const UpdatePage = (): JSX.Element => {
   const { news } = useAppSelector((state) => state);
