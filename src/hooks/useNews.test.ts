@@ -57,6 +57,7 @@ describe("Given a getAll function returned from a useNews function", () => {
 
   describe("When called and the users api responds with an error", () => {
     test("Then it should do nothing", async () => {
+      mockNewsList[0].title = "Test";
       mockAuthorList[0].name = "error";
 
       const {
