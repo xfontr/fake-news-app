@@ -1,6 +1,11 @@
 import userEvent from "@testing-library/user-event";
+import { useLocation } from "react-router-dom";
 import { deleteActionCreator } from "../../store/slices/newsSlice";
-import { render, screen } from "../../test-utils/customTestingLibrary";
+import {
+  render,
+  renderHook,
+  screen,
+} from "../../test-utils/customTestingLibrary";
 import { mockNewsWithAuthor } from "../../test-utils/mocks/mockNews";
 import News from "./News";
 
@@ -39,6 +44,25 @@ describe("Given a News component", () => {
       expect(mockDispatch).toHaveBeenCalledWith(
         deleteActionCreator(mockNewsWithAuthor.id)
       );
+    });
+  });
+
+  describe("When instantiated with a news and clicked the update button", () => {
+    test("Then it should redirect to the update page with the news id", async () => {
+      const expectedPath = `/update/${mockNewsWithAuthor.id}`;
+      render(<News news={mockNewsWithAuthor} />);
+
+      const updateButton = screen.getByRole("link", { name: "Update" });
+
+      await userEvent.click(updateButton);
+
+      const {
+        result: {
+          current: { pathname },
+        },
+      } = renderHook(useLocation);
+
+      expect(pathname).toBe(expectedPath);
     });
   });
 });

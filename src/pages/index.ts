@@ -34,6 +34,10 @@ const routes: RouteType[] = [
       subtitle: "Update the selected article to your linking.",
     },
   },
+  {
+    path: paths.updateRoot,
+    navigate: paths.news,
+  },
 ];
 
 export default routes;
