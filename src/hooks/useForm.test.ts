@@ -77,7 +77,7 @@ describe("Given a useForm function", () => {
       const setter = jest.fn();
       jest
         .spyOn(React, "useState")
-        .mockImplementation(() => [{ articleName: "initial value" }, setter]);
+        .mockImplementation(() => [{ title: "initial value" }, setter]);
 
       const {
         result: {
@@ -96,7 +96,7 @@ describe("Given a useForm function", () => {
       });
 
       await waitFor(() => {
-        expect(setter).toHaveBeenCalledWith({ articleName: "new value" });
+        expect(setter).toHaveBeenCalledWith({ title: "new value" });
       });
     });
   });
