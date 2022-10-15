@@ -24,9 +24,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "sass": "npx sass src/sass/index.scss public/css/index.css",
-    "sass:dev": "npx sass src/sass/index.scss public/css/index.css --watch",
-    "build": "react-scripts build && sass",
+    "sass": "sass src/sass/index.scss public/css/index.css",
+    "sass:dev": "sass src/sass/index.scss public/css/index.css --watch",
+    "bundle": "react-scripts build",
+    "build": "npm run sass && react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "test:dev": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",

@@ -6,19 +6,24 @@ type BasicAttributes = {
   type: React.HTMLInputTypeAttribute;
 };
 
-type OptionalAttributes = Omit<
+type OptionalFieldAttributes = Omit<
   Partial<HTMLAttributes<HTMLInputElement | HTMLTextAreaElement>>,
+  "id"
+>;
+
+type OptionalGroupAttributes = Omit<
+  Partial<HTMLAttributes<HTMLDivElement>>,
   "id"
 >;
 
 type ExtraAttributes = Partial<{
   initialValue: string | number;
-  customGroupClass: string;
   renderAs: "textarea";
 }>;
 
 export interface FullAttributes extends BasicAttributes, ExtraAttributes {
-  optionalData?: OptionalAttributes;
+  groupAttributes?: OptionalGroupAttributes;
+  fieldAttributes?: OptionalFieldAttributes;
 }
 
 type FormSchema = FullAttributes[];
