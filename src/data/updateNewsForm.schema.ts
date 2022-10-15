@@ -18,6 +18,9 @@ const updateNewsForm: FormSchema = [
     id: "body",
     type: "text",
     renderAs: "textarea",
+    groupAttributes: {
+      className: "form__container--full-width",
+    },
   },
 ];
 

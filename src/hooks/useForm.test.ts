@@ -56,7 +56,7 @@ describe("Given a useForm function", () => {
           id: "test",
           type: "text",
           initialValue: "test",
-          optionalData: {
+          fieldAttributes: {
             className: customClass,
           },
         },

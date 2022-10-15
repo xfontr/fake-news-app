@@ -1,0 +1,8 @@
+@use "../../sass/variables/spacings";
+
+.update {
+  &__information {
+    display: block;
+    margin-bottom: spacings.$big;
+  }
+}
