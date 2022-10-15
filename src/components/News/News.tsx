@@ -25,6 +25,9 @@ const News = ({
         <Button className="news__delete" onClick={handleDelete}>
           Delete
         </Button>
+        <Button className="news__delete" to={"/update/" + id}>
+          Update
+        </Button>
         <Button className="news__cta">Full article</Button>
       </div>
     </article>

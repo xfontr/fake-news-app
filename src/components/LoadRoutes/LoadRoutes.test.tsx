@@ -48,6 +48,25 @@ describe("Given a LoadRoutes component", () => {
       expect(newsPage).toBeInTheDocument();
     });
 
+    test("Then it should render the update page if the path is '/update/:id'", async () => {
+      render(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={[paths.update]}>
+            <Suspense>
+              <LoadRoutes routes={routes} />
+            </Suspense>
+          </MemoryRouter>
+        </Provider>
+      );
+
+      const newsPage = await screen.findByRole("heading", {
+        name: routes[3].pageInformation!.title,
+        level: 1,
+      });
+
+      expect(newsPage).toBeInTheDocument();
+    });
+
     test("Then it should render the not found heading if the route is '/false-route'", async () => {
       const falseRoute = "/false-route";
 

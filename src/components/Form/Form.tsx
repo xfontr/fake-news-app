@@ -18,7 +18,15 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => (
     className={`form${rest.className ? ` ${rest.className}` : ""}`}
   >
     {schema.map((field) => (
-      <div className="form__container" key={field.id}>
+      <div
+        {...field.groupAttributes}
+        className={`form__container${
+          field.groupAttributes?.className
+            ? ` ${field.groupAttributes.className}`
+            : ""
+        }`}
+        key={field.id}
+      >
         <label htmlFor={field.id} className="form__label">
           {field.label}
         </label>

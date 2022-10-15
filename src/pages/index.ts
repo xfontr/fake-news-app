@@ -25,6 +25,15 @@ const routes: RouteType[] = [
       subtitle: "We couldn't find what you are looking for :(",
     },
   },
+  {
+    path: paths.update,
+    name: "Update",
+    Page: lazy(() => import("../pages/UpdatePage/UpdatePage")),
+    pageInformation: {
+      title: "Update the news",
+      subtitle: "Update the selected article to your linking.",
+    },
+  },
 ];
 
 export default routes;
