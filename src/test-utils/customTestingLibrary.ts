@@ -5,13 +5,15 @@ import {
   RenderOptions,
 } from "@testing-library/react";
 import { JSXElementConstructor, ReactElement } from "react";
+import { store } from "../app/store";
 import Wrapper from "./Wrapper";
 
 const customRender = (
   view: ReactElement<unknown, string | JSXElementConstructor<unknown>>,
+  preloadedStore = store,
   options?: RenderOptions
 ) => {
-  render(view, { wrapper: Wrapper, ...options });
+  render(view, { wrapper: Wrapper, ...{ ...options, preloadedStore } });
 };
 
 const customRenderHook = (
