@@ -1,3 +1,4 @@
+import { ValuesState } from "../../hooks/useForm";
 import FormSchema from "../../types/FormSchema";
 import News from "../../types/News";
 
@@ -12,3 +13,11 @@ export const setSchema = (
   { ...updateSchema[1], initialValue: news ? news.author : "" },
   { ...updateSchema[2], initialValue: news ? news.body : "" },
 ];
+
+export const getUpdatedNews = (
+  currentNews: News,
+  values: ValuesState
+): News => ({
+  ...currentNews,
+  ...values,
+});

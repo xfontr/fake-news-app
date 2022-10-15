@@ -7,12 +7,15 @@ import paths from "../../config/paths";
 import updateNewsForm from "../../data/updateNewsForm.schema";
 import useForm from "../../hooks/useForm";
 import { updateActionCreator } from "../../store/slices/newsSlice";
-import News from "../../types/News";
-import { getCurrentNews, setSchema } from "../../utils/updateUtils/updateUtils";
+import {
+  getCurrentNews,
+  getUpdatedNews,
+  setSchema,
+} from "../../utils/updateUtils/updateUtils";
 
 const UpdatePage = (): JSX.Element => {
-  const { news } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
+  const { news } = useAppSelector((state) => state);
   const { id } = useParams();
 
   const currentNews = getCurrentNews(+id!, news);
@@ -23,14 +26,7 @@ const UpdatePage = (): JSX.Element => {
   const handleUpdate = (event: SyntheticEvent): void => {
     event.preventDefault();
 
-    const finalNews: News = {
-      ...currentNews!,
-      title: values.title as string,
-      body: values.body as string,
-      author: values.author as string,
-    };
-
-    dispatch(updateActionCreator(finalNews));
+    dispatch(updateActionCreator(getUpdatedNews(currentNews!, values)));
   };
 
   return (
