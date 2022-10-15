@@ -26,11 +26,13 @@ const useForm = (schema: FormSchema) => {
     value: string | number,
     onChange = handleChange
   ): InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> => ({
-    ...inputData.optionalData,
+    ...inputData.fieldAttributes,
     id: inputData.id,
     type: inputData.type,
     className: `form__input ${
-      inputData.optionalData?.className ? inputData.optionalData.className : ""
+      inputData.fieldAttributes?.className
+        ? inputData.fieldAttributes.className
+        : ""
     }`,
     value,
     onChange,

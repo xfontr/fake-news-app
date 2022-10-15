@@ -17,18 +17,18 @@ const UpdatePage = (): JSX.Element => {
   const { loadProps, values } = useForm(schema);
 
   return (
-    <>
+    <section className="update">
       {currentNews ? (
         <Form {...{ loadProps, values, schema }} />
       ) : (
         <div>
-          <span>
+          <span className="update__information">
             The news you are trying to update are not avaliable right now.
           </span>
           <Button to={paths.news}>Go back to the news</Button>
         </div>
       )}
-    </>
+    </section>
   );
 };
 
