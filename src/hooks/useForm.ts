@@ -40,6 +40,7 @@ const useForm = (schema: FormSchema) => {
     className: getClass(className, inputData.fieldAttributes?.className),
     value,
     onChange,
+    formNoValidate: false,
   });
 
   return { values, loadProps };

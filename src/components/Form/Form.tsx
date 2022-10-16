@@ -22,6 +22,7 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
     event.preventDefault();
 
     const validatedForm = validateForm(formValidationSchema, values);
+
     setErrors(validatedForm.error ? validatedForm : undefined);
 
     if (validatedForm.error) return;
@@ -36,6 +37,7 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
         onSubmit={handleSubmit}
         data-testid="form"
         className={getClass("form", rest.className)}
+        noValidate
       >
         {schema.map((field) => (
           <FormField
