@@ -1,8 +1,8 @@
 import { useState } from "react";
-import routes from "../../pages";
 import Menu from "../Menu/Menu";
+import routes from "../../pages";
 
-const NavigationMenu = (): JSX.Element => {
+const BurgerMenu = (): JSX.Element => {
   const [isMenuVisible, setVisibility] = useState(false);
 
   const toggleVisibility = () => {
@@ -12,13 +12,13 @@ const NavigationMenu = (): JSX.Element => {
   return (
     <nav className="burger">
       <div
-        data-testid="burger-icon"
-        className="burger-icon"
+        data-testid="burger__icon"
+        className="burger__icon"
         onClick={toggleVisibility}
       >
         <div
-          className={`burger-line${
-            isMenuVisible ? " burger-line--crossed" : ""
+          className={`burger__line${
+            isMenuVisible ? " burger__line--crossed" : ""
           }`}
         ></div>
       </div>
@@ -28,4 +28,4 @@ const NavigationMenu = (): JSX.Element => {
   );
 };
 
-export default NavigationMenu;
+export default BurgerMenu;

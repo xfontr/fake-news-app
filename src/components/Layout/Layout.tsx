@@ -4,6 +4,7 @@ import paths from "../../config/paths";
 import PageInformation from "../../types/PageInformation";
 import Advertisement from "../Advertisement/Advertisement";
 import PageHeading from "../PageHeading/PageHeading";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 type PageLayoutProps = {
   children: ReactNode;
@@ -14,6 +15,7 @@ export const Layout = ({ children }: PropsWithChildren): JSX.Element => (
   <>
     <header className="header">
       <Link to={paths.root}>FakeNews</Link>
+      <BurgerMenu />
     </header>
     <main className="main">{children}</main>
     <footer className="footer">For Cleverpy © 2022</footer>

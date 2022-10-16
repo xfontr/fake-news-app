@@ -17,17 +17,7 @@
     color: inherit;
   }
 
-  button {
-    width: 100%;
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    width: 93%;
-  }
-}
-
-.burger {
-  &-icon {
+  &__icon {
     position: relative;
     height: 36px;
     display: flex;
@@ -36,52 +26,52 @@
     z-index: 9999;
   }
 
-  &-line {
+  &__line {
     background-color: colors.$secondary;
     width: 35px;
     height: 4px;
     border-radius: 3px;
     position: relative;
     transition: 0.5s;
-  }
 
-  &-line::after {
-    content: "";
-    position: absolute;
-    bottom: 10px;
-    background-color: colors.$secondary;
-    width: 35px;
-    height: 4px;
-    border-radius: 3px;
-    transition: 0.5s;
-  }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      background-color: colors.$secondary;
+      width: 35px;
+      height: 4px;
+      border-radius: 3px;
+      transition: 0.5s;
+    }
 
-  &-line::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    background-color: colors.$secondary;
-    width: 35px;
-    height: 4px;
-    border-radius: 3px;
-    transition: 0.5s;
-  }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      background-color: colors.$secondary;
+      width: 35px;
+      height: 4px;
+      border-radius: 3px;
+      transition: 0.5s;
+    }
 
-  &-line--crossed {
-    height: 0px;
-    transform: rotate(180deg);
-    background-color: colors.$primary;
-  }
+    &--crossed {
+      height: 0px;
+      transform: rotate(180deg);
+      background-color: colors.$primary;
 
-  &-line--crossed::after {
-    bottom: -2.5px;
-    transform: rotate(315deg);
-    background-color: colors.$primary;
-  }
+      &::after {
+        bottom: -2.5px;
+        transform: rotate(315deg);
+        background-color: colors.$primary;
+      }
 
-  &-line--crossed::before {
-    top: -2.5px;
-    transform: rotate(-497deg);
-    background-color: colors.$primary;
+      &::before {
+        top: -2.5px;
+        transform: rotate(-497deg);
+        background-color: colors.$primary;
+      }
+    }
   }
 }
