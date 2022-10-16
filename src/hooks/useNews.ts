@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import INews from "../types/News";
 import api from "../utils/api/api";
 import { loadAllActionCreator } from "../store/slices/newsSlice";
-import { useAppDispatch } from "../app/hooks";
+import { useAppDispatch } from "../store/hooks";
 import Author from "../types/Author";
 import endpoints from "../config/endpoints";
 import addAuthors from "../utils/addAuthors/addAuthors";

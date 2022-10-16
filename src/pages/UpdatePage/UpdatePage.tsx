@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 import paths from "../../config/paths";

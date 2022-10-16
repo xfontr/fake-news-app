@@ -5,7 +5,7 @@ import {
   RenderOptions,
 } from "@testing-library/react";
 import { JSXElementConstructor, ReactElement } from "react";
-import { store } from "../app/store";
+import { store } from "../store/store";
 import Wrapper from "./Wrapper";
 
 const customRender = (
