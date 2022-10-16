@@ -38,6 +38,14 @@
     &:focus {
       border-color: colors.$typography;
     }
+
+    &--error {
+      border-color: colors.$error;
+    }
+
+    &--error:focus {
+      border-color: colors.$error;
+    }
   }
 }
 
