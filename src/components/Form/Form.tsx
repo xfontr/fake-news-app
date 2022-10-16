@@ -24,10 +24,9 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
     const validatedForm = validateForm(formValidationSchema, values);
     setErrors(validatedForm.error ? validatedForm : undefined);
 
-    if (!validatedForm.error) {
-      rest.onSubmit && rest.onSubmit(event);
-      return;
-    }
+    if (validatedForm.error) return;
+
+    rest.onSubmit && rest.onSubmit(event);
   };
 
   return (
