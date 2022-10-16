@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { Link } from "react-router-dom";
-import getClass from "../../utils/getClass/getClass";
+import { getClass } from "../../utils/getClass/getClass";
 
 interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {

@@ -6,7 +6,7 @@ import FormSchema from "../../types/FormSchema";
 import validateForm from "../../utils/validateForm/validateForm";
 import ValidationErrors from "./ValidationErrors/ValidationErrors";
 import FormField from "./FormField/FormField";
-import getClass from "../../utils/getClass/getClass";
+import { getClass, getFullClass } from "../../utils/getClass/getClass";
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   schema: FormSchema;
@@ -39,7 +39,15 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
       >
         {schema.map((field) => (
           <FormField
-            {...{ field, values, ...loadProps(field, values[field.id]) }}
+            {...{
+              field,
+              values,
+              ...loadProps(
+                field,
+                values[field.id],
+                getFullClass(errors, field)
+              ),
+            }}
             key={field.id}
           />
         ))}

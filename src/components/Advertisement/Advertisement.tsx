@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import getClass from "../../utils/getClass/getClass";
+import { getClass } from "../../utils/getClass/getClass";
 import Button from "../Button/Button";
 
 const Advertisement = ({

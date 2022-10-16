@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from "react";
 import { FullAttributes } from "../../../types/FormSchema";
-import getClass from "../../../utils/getClass/getClass";
+import { getClass } from "../../../utils/getClass/getClass";
 
 interface FormFieldProps
   extends InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {

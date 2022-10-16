@@ -48,10 +48,12 @@ describe("Given a LoadRoutes component", () => {
       expect(newsPage).toBeInTheDocument();
     });
 
-    test("Then it should render the update page if the path is '/update/:id'", async () => {
+    test("Then it should render the update page if the path is '/update/1'", async () => {
+      const updatePath = "/update/1";
+
       render(
         <Provider store={store}>
-          <MemoryRouter initialEntries={[paths.update]}>
+          <MemoryRouter initialEntries={[updatePath]}>
             <Suspense>
               <LoadRoutes routes={routes} />
             </Suspense>

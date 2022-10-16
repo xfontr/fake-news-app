@@ -1,4 +1,7 @@
-const getClass = (
+import { ValidationResult } from "joi";
+import { FullAttributes } from "../../types/FormSchema";
+
+export const getClass = (
   defaultClass: string,
   additionalClass: string | undefined
 ): string => {
@@ -6,4 +9,10 @@ const getClass = (
   return `${defaultClass}${hasAdditionalClass}`;
 };
 
-export default getClass;
+export const getFullClass = (
+  errors: ValidationResult<unknown> | undefined,
+  field: FullAttributes
+): string =>
+  errors?.error?.details.find((error) => error.path[0] === field.id)
+    ? "form__input form__input--error"
+    : "form__input";
