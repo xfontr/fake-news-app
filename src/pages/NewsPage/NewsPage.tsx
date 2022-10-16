@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector } from "../../store/hooks";
 import NewsList from "../../components/NewsList/NewsList";
 import useNews from "../../hooks/useNews";
 

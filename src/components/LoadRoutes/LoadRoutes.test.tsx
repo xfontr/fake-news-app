@@ -4,9 +4,9 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import paths from "../../config/paths";
 import routes from "../../pages";
+import { store } from "../../store/store";
 import { screen } from "../../test-utils/customTestingLibrary";
 import LoadRoutes from "./LoadRoutes";
-import { store } from "../../app/store";
 
 describe("Given a LoadRoutes component", () => {
   describe("When instantiated with a schema of routes", () => {

@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import { deleteActionCreator } from "../../store/slices/newsSlice";
 import INews from "../../types/News";
 import Button from "../Button/Button";

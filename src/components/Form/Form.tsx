@@ -3,7 +3,7 @@ import { FormEvent, FormHTMLAttributes, ReactNode, useState } from "react";
 import formValidationSchema from "../../data/formValidation.schema";
 import { LoadProps, ValuesState } from "../../hooks/useForm";
 import FormSchema from "../../types/FormSchema";
-import validateForm from "../../utils/validateForm/validateForm";
+import { validateForm } from "../../utils/validateForm/validateForm";
 import ValidationErrors from "./ValidationErrors/ValidationErrors";
 import FormField from "./FormField/FormField";
 import { getClass, getFullClass } from "../../utils/getClass/getClass";
@@ -22,6 +22,7 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
     event.preventDefault();
 
     const validatedForm = validateForm(formValidationSchema, values);
+
     setErrors(validatedForm.error ? validatedForm : undefined);
 
     if (validatedForm.error) return;
@@ -36,6 +37,7 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
         onSubmit={handleSubmit}
         data-testid="form"
         className={getClass("form", rest.className)}
+        noValidate
       >
         {schema.map((field) => (
           <FormField

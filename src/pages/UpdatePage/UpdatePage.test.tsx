@@ -6,7 +6,6 @@ import {
   updateActionCreator,
 } from "../../store/slices/newsSlice";
 import {
-  createEvent,
   fireEvent,
   render,
   renderHook,
@@ -26,8 +25,8 @@ jest.mock("react-router-dom", () => ({
 
 const mockDispatch = jest.fn();
 
-jest.mock("../../app/hooks", () => ({
-  ...jest.requireActual("../../app/hooks"),
+jest.mock("../../store/hooks", () => ({
+  ...jest.requireActual("../../store/hooks"),
   useAppDispatch: () => mockDispatch,
 }));
 

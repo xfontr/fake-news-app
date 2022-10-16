@@ -1,6 +1,5 @@
-// import { reactRender } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import { loadAllActionCreator } from "../../store/slices/newsSlice";
 import {
   render,

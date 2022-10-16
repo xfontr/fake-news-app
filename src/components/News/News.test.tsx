@@ -11,8 +11,8 @@ import News from "./News";
 
 const mockDispatch = jest.fn();
 
-jest.mock("../../app/hooks", () => ({
-  ...jest.requireActual("../../app/hooks"),
+jest.mock("../../store/hooks", () => ({
+  ...jest.requireActual("../../store/hooks"),
   useAppDispatch: () => mockDispatch,
 }));
 
