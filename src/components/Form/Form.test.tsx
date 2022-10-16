@@ -1,7 +1,7 @@
-import userEvent from "@testing-library/user-event";
 import schema from "../../data/updateNewsForm.schema";
 import useForm from "../../hooks/useForm";
 import {
+  createEvent,
   fireEvent,
   render,
   renderHook,
@@ -45,16 +45,24 @@ describe("Given a Form component", () => {
       const className = "form--test";
       const expectedClasses = `form ${className}`;
 
-      render(
-        <Form
-          {...{ loadProps, values, schema, className }}
-          data-testid="form"
-        />
-      );
+      render(<Form {...{ loadProps, values, schema, className }} />);
 
       const button = screen.getByTestId("form");
 
       expect(button.getAttribute("class")).toBe(expectedClasses);
+    });
+  });
+
+  describe("When submitted with valid values", () => {
+    test("Then the submit should be default prevented", () => {
+      render(<Form {...{ loadProps, values, schema }} />);
+
+      const form = screen.getByTestId("form");
+      const submitEvent = createEvent.submit(form);
+
+      fireEvent(form, submitEvent);
+
+      expect(submitEvent.defaultPrevented).toBe(true);
     });
   });
 });
