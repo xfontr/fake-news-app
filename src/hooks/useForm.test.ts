@@ -37,7 +37,7 @@ describe("Given a useForm function", () => {
       const expectedProps = {
         id: updateNewsForm[0].id,
         type: updateNewsForm[0].type,
-        className: `form__input `,
+        className: "form__input",
         value,
         onChange: handleChange,
       };
