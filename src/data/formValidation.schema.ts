@@ -9,9 +9,9 @@ const { minLength, shortMaxLength, longMaxLength, articleLength } =
   });
 
 const formValidationSchema = Joi.object({
-  title: Joi.string().alphanum().min(minLength).max(longMaxLength).required(),
-  author: Joi.string().alphanum().min(minLength).max(shortMaxLength).required(),
-  body: Joi.string().alphanum().min(minLength).max(articleLength).required(),
+  title: Joi.string().min(minLength).max(longMaxLength).required(),
+  author: Joi.string().min(minLength).max(shortMaxLength).required(),
+  body: Joi.string().min(minLength).max(articleLength).required(),
 });
 
 export default formValidationSchema;
