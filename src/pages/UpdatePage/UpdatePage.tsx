@@ -23,7 +23,6 @@ const UpdatePage = (): JSX.Element => {
   const { loadProps, values } = useForm(schema);
 
   const handleUpdate = (): void => {
-    console.log("this is bad, bad");
     dispatch(updateActionCreator(getUpdatedNews(currentNews!, values)));
   };
 
