@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
@@ -14,6 +14,7 @@ import {
 
 const UpdatePage = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { news } = useAppSelector((state) => state);
   const { id } = useParams();
 
@@ -24,6 +25,7 @@ const UpdatePage = (): JSX.Element => {
 
   const handleUpdate = (): void => {
     dispatch(updateActionCreator(getUpdatedNews(currentNews!, values)));
+    navigate(paths.news);
   };
 
   return (

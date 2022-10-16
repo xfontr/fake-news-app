@@ -19,6 +19,7 @@
   &__options {
     display: flex;
     justify-content: flex-end;
+    margin-top: spacings.$medium;
     gap: spacings.$medium;
   }
 }

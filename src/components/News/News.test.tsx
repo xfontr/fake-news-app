@@ -25,8 +25,8 @@ describe("Given a News component", () => {
         screen.getByText(mockNewsWithAuthor.author!),
         screen.getByText(mockNewsWithAuthor.title),
         screen.getByText(mockNewsWithAuthor.body),
-        screen.getByRole("button", { name: "Delete" }),
-        screen.getByRole("button", { name: "Full article" }),
+        screen.getByTestId("delete"),
+        screen.getByTestId("update"),
       ];
 
       news.forEach((node) => expect(node).toBeInTheDocument());
@@ -37,7 +37,7 @@ describe("Given a News component", () => {
     test("Then it should call the dispatch to delete the news with its id", async () => {
       render(<News news={mockNewsWithAuthor} />);
 
-      const deleteButton = screen.getByRole("button", { name: "Delete" });
+      const deleteButton = screen.getByTestId("delete");
 
       await userEvent.click(deleteButton);
 
@@ -52,7 +52,7 @@ describe("Given a News component", () => {
       const expectedPath = `/update/${mockNewsWithAuthor.id}`;
       render(<News news={mockNewsWithAuthor} />);
 
-      const updateButton = screen.getByRole("link", { name: "Update" });
+      const updateButton = screen.getByTestId("update");
 
       await userEvent.click(updateButton);
 
