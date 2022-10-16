@@ -3,6 +3,11 @@ import FormSchema, { FullAttributes } from "../types/FormSchema";
 
 export type ValuesState = Record<string, string | number>;
 
+export type LoadProps = (
+  input: FullAttributes,
+  value: string | number
+) => InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>;
+
 const useForm = (schema: FormSchema) => {
   const initialState = (): ValuesState => {
     const state: ValuesState = {};
@@ -21,7 +26,7 @@ const useForm = (schema: FormSchema) => {
     setValues({ ...values, [id]: value });
   };
 
-  const loadProps = (
+  const loadProps: LoadProps = (
     inputData: FullAttributes,
     value: string | number,
     onChange = handleChange
