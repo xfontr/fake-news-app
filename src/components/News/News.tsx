@@ -12,7 +12,7 @@ const News = ({
 }: NewsProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
-  const handleDelete = () => {
+  const handleDelete = (): void => {
     dispatch(deleteActionCreator(id));
   };
 

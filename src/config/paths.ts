@@ -7,4 +7,4 @@ const paths = {
   logIn: "/log-in",
 };
 
-export default paths;
+export default Object.freeze(paths);

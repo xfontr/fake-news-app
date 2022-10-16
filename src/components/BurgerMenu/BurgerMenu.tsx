@@ -5,7 +5,7 @@ import routes from "../../pages";
 const BurgerMenu = (): JSX.Element => {
   const [isMenuVisible, setVisibility] = useState(false);
 
-  const toggleVisibility = () => {
+  const toggleVisibility = (): void => {
     setVisibility(!isMenuVisible);
   };
 
