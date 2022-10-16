@@ -16,12 +16,17 @@ interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
 }
 
 const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
-  const [errors, setErrors] = useState<ValidationResult<unknown>>();
+  const [errors, setErrors] = useState<ValidationResult<unknown> | undefined>();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    rest.onSubmit && rest.onSubmit(event);
+    event.preventDefault();
 
-    setErrors(validateForm(formValidationSchema, values));
+    const validatedForm = validateForm(formValidationSchema, values);
+    setErrors(validatedForm.error ? validatedForm : undefined);
+
+    if (validatedForm.error) return;
+
+    rest.onSubmit && rest.onSubmit(event);
   };
 
   return (

@@ -1,7 +1,7 @@
-import userEvent from "@testing-library/user-event";
 import schema from "../../data/updateNewsForm.schema";
 import useForm from "../../hooks/useForm";
 import {
+  createEvent,
   fireEvent,
   render,
   renderHook,
@@ -24,7 +24,7 @@ describe("Given a Form component", () => {
         screen.getByLabelText(schema[1].label),
       ];
 
-      form.forEach((input, index) => expect(input).toBeInTheDocument());
+      form.forEach((input) => expect(input).toBeInTheDocument());
 
       form.forEach((input, index) =>
         expect(input).toHaveValue(schema[index].initialValue)
@@ -45,16 +45,81 @@ describe("Given a Form component", () => {
       const className = "form--test";
       const expectedClasses = `form ${className}`;
 
-      render(
-        <Form
-          {...{ loadProps, values, schema, className }}
-          data-testid="form"
-        />
-      );
+      render(<Form {...{ loadProps, values, schema, className }} />);
 
       const button = screen.getByTestId("form");
 
       expect(button.getAttribute("class")).toBe(expectedClasses);
+    });
+  });
+
+  describe("When submitted", () => {
+    test("Then the submit event should be default prevented", () => {
+      render(<Form {...{ loadProps, values, schema }} />);
+
+      const form = screen.getByTestId("form");
+      const submitEvent = createEvent.submit(form);
+
+      fireEvent(form, submitEvent);
+
+      expect(submitEvent.defaultPrevented).toBe(true);
+    });
+
+    describe("And the input values are invalid", () => {
+      test("Then it should not call the submit action of the form", () => {
+        const submitAction = jest.fn();
+
+        render(
+          <Form
+            {...{ loadProps, values, schema }}
+            onSubmit={() => submitAction()}
+          />
+        );
+
+        const form = screen.getByTestId("form");
+
+        fireEvent.submit(form);
+
+        expect(submitAction).not.toHaveBeenCalled();
+      });
+
+      test("Then it should display the errors", () => {
+        render(<Form {...{ loadProps, values, schema }} />);
+
+        const form = screen.getByTestId("form");
+        fireEvent.submit(form);
+
+        const expectedError = screen.getByText(
+          '"body" is not allowed to be empty'
+        );
+
+        expect(expectedError).toBeInTheDocument();
+      });
+    });
+
+    describe("And the input values are valid", () => {
+      test("Then it should call the submit action of the form", () => {
+        const submitAction = jest.fn();
+
+        const validValues = {
+          [schema[0].id]: "Hello",
+          [schema[1].id]: "Hello",
+          [schema[2].id]: "Hello",
+        };
+
+        render(
+          <Form
+            {...{ loadProps, values: validValues, schema }}
+            onSubmit={() => submitAction()}
+          />
+        );
+
+        const form = screen.getByTestId("form");
+
+        fireEvent.submit(form);
+
+        expect(submitAction).toHaveBeenCalled();
+      });
     });
   });
 });

@@ -87,17 +87,6 @@ describe("Given an UpdatePage component", () => {
     });
 
     describe("And the user fills and submits the form", () => {
-      test("Then it should prevent default the submit action of the form", () => {
-        render(<UpdatePage />);
-
-        const form = screen.getByTestId("form");
-        const submitEvent = createEvent.submit(form);
-
-        fireEvent(form, submitEvent);
-
-        expect(submitEvent.defaultPrevented).toBe(true);
-      });
-
       test("Then it should call the dispatch to update the news", async () => {
         render(<UpdatePage />);
 

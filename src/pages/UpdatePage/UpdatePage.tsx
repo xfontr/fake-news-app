@@ -1,4 +1,3 @@
-import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Button from "../../components/Button/Button";
@@ -23,9 +22,8 @@ const UpdatePage = (): JSX.Element => {
 
   const { loadProps, values } = useForm(schema);
 
-  const handleUpdate = (event: SyntheticEvent): void => {
-    event.preventDefault();
-
+  const handleUpdate = (): void => {
+    console.log("this is bad, bad");
     dispatch(updateActionCreator(getUpdatedNews(currentNews!, values)));
   };
 
