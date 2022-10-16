@@ -1,4 +1,6 @@
 import { PropsWithChildren, ReactNode } from "react";
+import { Link } from "react-router-dom";
+import paths from "../../config/paths";
 import PageInformation from "../../types/PageInformation";
 import Advertisement from "../Advertisement/Advertisement";
 import PageHeading from "../PageHeading/PageHeading";
@@ -11,7 +13,7 @@ type PageLayoutProps = {
 export const Layout = ({ children }: PropsWithChildren): JSX.Element => (
   <>
     <header className="header">
-      <span>FakeNews</span>
+      <Link to={paths.root}>FakeNews</Link>
     </header>
     <main className="main">{children}</main>
     <footer className="footer">For Cleverpy © 2022</footer>
