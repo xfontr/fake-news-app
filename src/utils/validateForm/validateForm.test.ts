@@ -1,30 +1,41 @@
-import { ObjectSchema } from "joi";
-import validateForm from "./validateForm";
+import Joi from "joi";
+import { extractSchema, validateForm } from "./validateForm";
+
+const schema = Joi.object({
+  title: Joi.string(),
+  author: Joi.string(),
+});
+
+describe("Given a extractSchema function", () => {
+  describe("When called with a validation schema and a group of values", () => {
+    test("Then it should return a new validation schema with only the fields the values have", () => {
+      const values = {
+        title: "Hello",
+      };
+
+      const expectedSchema = Joi.object({
+        title: Joi.string(),
+      });
+
+      const result = extractSchema(schema, values);
+
+      expect(JSON.stringify(result)).toStrictEqual(
+        JSON.stringify(expectedSchema)
+      );
+    });
+  });
+});
 
 describe("Given a validateForm function", () => {
   describe("When called with a joi validation schema and a set of form values", () => {
-    const mockValidate = jest.fn().mockReturnThis();
-
-    const validationSchema = {
-      validate: mockValidate,
-    };
-
     test("Then it should return a joi validation result object (with errors, if any)", () => {
       const values = {
-        name: "Name",
+        title: 1,
       };
 
-      const options = {
-        abortEarly: false,
-      };
+      const result = validateForm(schema, values);
 
-      const result = validateForm(
-        validationSchema as unknown as ObjectSchema<unknown>,
-        values
-      );
-
-      expect(validationSchema.validate).toHaveBeenCalledWith(values, options);
-      expect(result).toBe(mockValidate());
+      expect(result.error).toHaveProperty("details");
     });
   });
 });

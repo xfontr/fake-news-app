@@ -40,6 +40,7 @@ describe("Given a useForm function", () => {
         className: "form__input",
         value,
         onChange: handleChange,
+        formNoValidate: false,
       };
 
       const result = loadProps(updateNewsForm[0], value, "form__input");

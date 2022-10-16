@@ -3,7 +3,7 @@ import { FormEvent, FormHTMLAttributes, ReactNode, useState } from "react";
 import formValidationSchema from "../../data/formValidation.schema";
 import { LoadProps, ValuesState } from "../../hooks/useForm";
 import FormSchema from "../../types/FormSchema";
-import validateForm from "../../utils/validateForm/validateForm";
+import { validateForm } from "../../utils/validateForm/validateForm";
 import ValidationErrors from "./ValidationErrors/ValidationErrors";
 import FormField from "./FormField/FormField";
 import { getClass, getFullClass } from "../../utils/getClass/getClass";
