@@ -33,6 +33,16 @@ const routes: RouteType[] = [
       title: "Update the news",
       subtitle: "Update the selected article to your linking.",
     },
+    hide: true,
+  },
+  {
+    path: paths.logIn,
+    name: "Log in",
+    Page: lazy(() => import("../pages/NotFoundPage/NotFoundPage")),
+    pageInformation: {
+      title: "Start publishing news",
+      subtitle: "Log in to get full access to all the publishing options.",
+    },
   },
   {
     path: paths.updateRoot,
