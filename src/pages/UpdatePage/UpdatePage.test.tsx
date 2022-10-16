@@ -1,6 +1,8 @@
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import paths from "../../config/paths";
 import {
   loadAllActionCreator,
   updateActionCreator,
@@ -86,7 +88,7 @@ describe("Given an UpdatePage component", () => {
     });
 
     describe("And the user fills and submits the form", () => {
-      test("Then it should call the dispatch to update the news", async () => {
+      test("Then it should call the dispatch to update the news, and navigate to '/news'", async () => {
         render(<UpdatePage />);
 
         const updateButton = screen.getByRole("button", { name: "Update" });
@@ -103,6 +105,14 @@ describe("Given an UpdatePage component", () => {
         expect(mockDispatch).toHaveBeenCalledWith(
           updateActionCreator(getUpdatedNews(mockNewsList[0], formValues))
         );
+
+        const {
+          result: {
+            current: { pathname },
+          },
+        } = renderHook(useLocation);
+
+        expect(pathname).toBe(paths.news);
       });
     });
   });
