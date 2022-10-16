@@ -18,7 +18,7 @@ const Menu = ({ toggleVisibility, routes }: MenuProps): JSX.Element => (
       <ul className="navigation__links">
         {routes.map((route) => (
           <>
-            {!route.hide && (
+            {!route.hide && route.name && (
               <li className="navigation__link" key={route.path}>
                 <Link
                   key={route.name}
