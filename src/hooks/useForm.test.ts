@@ -42,7 +42,7 @@ describe("Given a useForm function", () => {
         onChange: handleChange,
       };
 
-      const result = loadProps(updateNewsForm[0], value);
+      const result = loadProps(updateNewsForm[0], value, "form__input");
 
       expect(JSON.stringify(result)).toBe(JSON.stringify(expectedProps));
     });
@@ -68,7 +68,7 @@ describe("Given a useForm function", () => {
         },
       } = ReactRenderHook(() => useForm(customSchema));
 
-      const result = loadProps(customSchema[0], value);
+      const result = loadProps(customSchema[0], value, "form__input");
 
       expect(result.className).toBe(`form__input ${customClass}`);
     });
@@ -90,7 +90,7 @@ describe("Given a useForm function", () => {
       } as Partial<ChangeEvent<HTMLInputElement>>;
 
       await act(() => {
-        loadProps!(updateNewsForm[0], "value").onChange!(
+        loadProps!(updateNewsForm[0], "value", "form__input").onChange!(
           event as ChangeEvent<HTMLInputElement>
         );
       });

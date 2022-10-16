@@ -86,6 +86,8 @@ describe("Given a Form component", () => {
       test("Then it should display the errors", () => {
         render(<Form {...{ loadProps, values, schema }} />);
 
+        const bodyField = screen.getByLabelText(schema[2].label);
+
         const form = screen.getByTestId("form");
         fireEvent.submit(form);
 
@@ -94,6 +96,7 @@ describe("Given a Form component", () => {
         );
 
         expect(expectedError).toBeInTheDocument();
+        expect(bodyField).toHaveStyle("border-color: colors.$error");
       });
     });
 

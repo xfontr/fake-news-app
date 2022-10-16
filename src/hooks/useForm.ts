@@ -1,12 +1,13 @@
 import { ChangeEvent, InputHTMLAttributes, useState } from "react";
 import FormSchema, { FullAttributes } from "../types/FormSchema";
-import getClass from "../utils/getClass/getClass";
+import { getClass } from "../utils/getClass/getClass";
 
 export type ValuesState = Record<string, string | number>;
 
 export type LoadProps = (
   input: FullAttributes,
-  value: string | number
+  value: string | number,
+  className: string
 ) => InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>;
 
 const useForm = (schema: FormSchema) => {
@@ -30,12 +31,13 @@ const useForm = (schema: FormSchema) => {
   const loadProps: LoadProps = (
     inputData: FullAttributes,
     value: string | number,
+    className: string,
     onChange = handleChange
   ): InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> => ({
     ...inputData.fieldAttributes,
     id: inputData.id,
     type: inputData.type,
-    className: getClass("form__input", inputData.fieldAttributes?.className),
+    className: getClass(className, inputData.fieldAttributes?.className),
     value,
     onChange,
   });
