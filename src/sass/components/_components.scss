@@ -8,5 +8,7 @@
 @use "../../components/PageHeading/PageHeading.scss";
 @use "../../components/Breadcrumbs/Breadcrumbs.scss";
 @use "../../components/Form/Form.scss";
+@use "../../components/Form/FormField/FormField.scss";
+@use "../../components/Form/ValidationErrors/ValidationErrors.scss";
 
 @use "../../pages/UpdatePage/UpdatePage.scss";

@@ -1,0 +1,19 @@
+@use "../../../sass/variables/colors";
+@use "../../../sass/variables/spacings";
+
+.errors {
+  margin-top: spacings.$medium;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: spacings.$medium;
+  }
+
+  &__message {
+    padding: 0.4rem 1rem;
+    border: 1px solid colors.$error;
+    background-color: colors.$error--lighter;
+    border-radius: spacings.$rad-small;
+  }
+}
