@@ -2,6 +2,8 @@ import { useAppDispatch } from "../../store/hooks";
 import { deleteActionCreator } from "../../store/slices/newsSlice";
 import INews from "../../types/News";
 import Button from "../Button/Button";
+import { BsPencil } from "react-icons/bs";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 type NewsProps = {
   news: INews;
@@ -22,13 +24,20 @@ const News = ({
       <h3 className="news__title">{title}</h3>
       <p className="news__body">{body}</p>
       <div className="news__options">
-        <Button className="news__delete" onClick={handleDelete}>
-          Delete
+        <Button
+          className="button--icon news__delete"
+          data-testid="delete"
+          onClick={handleDelete}
+        >
+          <FaRegTrashAlt />
         </Button>
-        <Button className="news__delete" to={"/update/" + id}>
-          Update
+        <Button
+          className="button--icon news__update"
+          data-testid="update"
+          to={"/update/" + id}
+        >
+          <BsPencil />
         </Button>
-        <Button className="news__cta">Full article</Button>
       </div>
     </article>
   );
