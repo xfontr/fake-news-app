@@ -6,6 +6,7 @@ interface RouteType {
   navigate?: string;
   Page?: React.LazyExoticComponent<() => JSX.Element>;
   pageInformation?: PageInformation;
+  hide?: boolean;
 }
 
 export default RouteType;
