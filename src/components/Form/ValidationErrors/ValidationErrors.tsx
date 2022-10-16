@@ -5,17 +5,19 @@ type ValidationErrorsProps = {
 };
 
 const ValidationErrors = ({ errors }: ValidationErrorsProps): JSX.Element => (
-  <div className="errors">
+  <>
     {errors?.error && (
-      <ul className="errors__list">
-        {errors.error.details.map((error) => (
-          <li key={error.path[0]} className="errors__message">
-            {error.message}
-          </li>
-        ))}
-      </ul>
+      <div className="errors" data-testid="errors">
+        <ul className="errors__list">
+          {errors.error.details.map((error) => (
+            <li key={error.path[0]} className="errors__message">
+              {error.message}
+            </li>
+          ))}
+        </ul>
+      </div>
     )}
-  </div>
+  </>
 );
 
 export default ValidationErrors;
