@@ -1,5 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, useState } from "react";
 import FormSchema, { FullAttributes } from "../types/FormSchema";
+import getClass from "../utils/getClass/getClass";
 
 export type ValuesState = Record<string, string | number>;
 
@@ -34,11 +35,7 @@ const useForm = (schema: FormSchema) => {
     ...inputData.fieldAttributes,
     id: inputData.id,
     type: inputData.type,
-    className: `form__input ${
-      inputData.fieldAttributes?.className
-        ? inputData.fieldAttributes.className
-        : ""
-    }`,
+    className: getClass("form__input", inputData.fieldAttributes?.className),
     value,
     onChange,
   });

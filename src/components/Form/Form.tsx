@@ -6,6 +6,7 @@ import FormSchema from "../../types/FormSchema";
 import validateForm from "../../utils/validateForm/validateForm";
 import ValidationErrors from "./ValidationErrors/ValidationErrors";
 import FormField from "./FormField/FormField";
+import getClass from "../../utils/getClass/getClass";
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   schema: FormSchema;
@@ -29,10 +30,13 @@ const Form = ({ schema, loadProps, values, children, ...rest }: FormProps) => {
         {...rest}
         onSubmit={handleSubmit}
         data-testid="form"
-        className={`form${rest.className ? ` ${rest.className}` : ""}`}
+        className={getClass("form", rest.className)}
       >
         {schema.map((field) => (
-          <FormField {...{ field, loadProps, values }} key={field.id} />
+          <FormField
+            {...{ field, values, ...loadProps(field, values[field.id]) }}
+            key={field.id}
+          />
         ))}
         {children}
       </form>

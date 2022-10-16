@@ -1,5 +1,6 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { Link } from "react-router-dom";
+import getClass from "../../utils/getClass/getClass";
 
 interface ButtonProps
   extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
@@ -10,7 +11,7 @@ interface ButtonProps
 const Button = ({ children, to, ...rest }: ButtonProps) => {
   const props = {
     ...rest,
-    className: `button${rest.className ? ` ${rest.className}` : ""}`,
+    className: getClass("button", rest.className),
   };
 
   return (

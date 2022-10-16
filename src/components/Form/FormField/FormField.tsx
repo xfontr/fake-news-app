@@ -1,26 +1,19 @@
-import { FormHTMLAttributes, PropsWithChildren } from "react";
-import { LoadProps, ValuesState } from "../../../hooks/useForm";
+import { InputHTMLAttributes, PropsWithChildren } from "react";
+import { ValuesState } from "../../../hooks/useForm";
 import { FullAttributes } from "../../../types/FormSchema";
+import getClass from "../../../utils/getClass/getClass";
 
-interface FormFieldProps extends FormHTMLAttributes<HTMLFormElement> {
+interface FormFieldProps
+  extends InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   field: FullAttributes;
   values: ValuesState;
-  loadProps: LoadProps;
 }
 
-const FormField = ({
-  field,
-  loadProps,
-  values,
-}: FormFieldProps): JSX.Element => {
+const FormField = ({ field, values, ...rest }: FormFieldProps): JSX.Element => {
   const FormGroup = ({ children }: PropsWithChildren): JSX.Element => (
     <div
       {...field.groupAttributes}
-      className={`form__container${
-        field.groupAttributes?.className
-          ? ` ${field.groupAttributes.className}`
-          : ""
-      }`}
+      className={getClass("form__container", field.groupAttributes?.className)}
       key={field.id}
     >
       {children}
@@ -32,10 +25,8 @@ const FormField = ({
       <label htmlFor={field.id} className="form__label">
         {field.label}
       </label>
-      {!field.renderAs && <input {...loadProps(field, values[field.id])} />}
-      {field.renderAs === "textarea" && (
-        <textarea {...loadProps(field, values[field.id])} />
-      )}
+      {!field.renderAs && <input {...rest} />}
+      {field.renderAs === "textarea" && <textarea {...rest} />}
     </FormGroup>
   );
 };
