@@ -1,16 +1,38 @@
-import { PropsWithChildren } from "react";
-import { createPortal } from "react-dom";
-
-const root = document.getElementById("root")!;
+import { HTMLAttributes } from "react";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { BiErrorCircle } from "react-icons/bi";
+import { MdOutlineDownloading } from "react-icons/md";
+import useModal from "../../hooks/useModal";
+import Portal from "../Portal/Portal";
 
 const Modal = (): JSX.Element => {
-  const Portal = ({ children }: PropsWithChildren): JSX.Element =>
-    createPortal(children, root);
+  const [message, localStatus] = useModal();
+
+  const Icon = ({ ...rest }: HTMLAttributes<HTMLDivElement>): JSX.Element => (
+    <div {...rest}>
+      {localStatus === "LOADING" && <MdOutlineDownloading />}
+      {localStatus === "SUCCESS" && <AiFillCheckCircle />}
+      {localStatus === "ERROR" && <BiErrorCircle />}
+    </div>
+  );
 
   return (
-    <Portal>
-      <div className="modal"></div>
-    </Portal>
+    <>
+      {localStatus !== "IDLE" && (
+        <Portal>
+          <div
+            className={
+              localStatus === "ERROR"
+                ? "modal modal--error"
+                : "modal modal--success"
+            }
+          >
+            <Icon className="modal__icon" />
+            <span className="modal__message">{message}</span>
+          </div>
+        </Portal>
+      )}
+    </>
   );
 };
 
