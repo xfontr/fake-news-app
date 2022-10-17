@@ -1,6 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { useLocation } from "react-router-dom";
 import { deleteActionCreator } from "../../store/slices/newsSlice";
+import { setUiActionCreator, UiState } from "../../store/slices/uiSlice";
 import {
   render,
   renderHook,
@@ -44,6 +45,21 @@ describe("Given a News component", () => {
       expect(mockDispatch).toHaveBeenCalledWith(
         deleteActionCreator(mockNewsWithAuthor.id)
       );
+    });
+
+    test("Then it should open the modal with a success message", async () => {
+      const expectedModal: UiState = {
+        status: "SUCCESS",
+        message: "News deleted",
+      };
+
+      render(<News news={mockNewsWithAuthor} />);
+
+      const deleteButton = screen.getByTestId("delete");
+      await userEvent.click(deleteButton);
+
+      const calledWith = mockDispatch.mock.calls[1][0];
+      expect(calledWith).toStrictEqual(setUiActionCreator(expectedModal));
     });
   });
 

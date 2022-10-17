@@ -7,6 +7,7 @@ import {
   loadAllActionCreator,
   updateActionCreator,
 } from "../../store/slices/newsSlice";
+import { setUiActionCreator, UiState } from "../../store/slices/uiSlice";
 import {
   fireEvent,
   render,
@@ -113,6 +114,21 @@ describe("Given an UpdatePage component", () => {
         } = renderHook(useLocation);
 
         expect(pathname).toBe(paths.news);
+      });
+
+      test("Then it should open the modal with a success message", async () => {
+        const expectedModal: UiState = {
+          status: "SUCCESS",
+          message: "News updated",
+        };
+
+        render(<UpdatePage />);
+
+        const updateButton = screen.getByRole("button", { name: "Update" });
+        await userEvent.click(updateButton);
+
+        const calledWith = mockDispatch.mock.calls[1][0];
+        expect(calledWith).toStrictEqual(setUiActionCreator(expectedModal));
       });
     });
   });
