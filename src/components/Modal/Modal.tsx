@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdOutlineDownloading } from "react-icons/md";
-import useModal from "../../hooks/useModal";
+import useModal from "../../hooks/useModal/useModal";
 import Portal from "../Portal/Portal";
 
 const Modal = (): JSX.Element => {
@@ -20,16 +20,10 @@ const Modal = (): JSX.Element => {
     <>
       {localStatus !== "IDLE" && (
         <Portal>
-          <div
-            className={
-              localStatus === "ERROR"
-                ? "modal modal--error"
-                : "modal modal--success"
-            }
-          >
+          <dialog className={`modal modal--${localStatus.toLowerCase()}`}>
             <Icon className="modal__icon" />
             <span className="modal__message">{message}</span>
-          </div>
+          </dialog>
         </Portal>
       )}
     </>

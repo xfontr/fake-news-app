@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { setUiActionCreator } from "../store/slices/uiSlice";
-import UiStatus from "../types/UiStatus";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { setUiActionCreator } from "../../store/slices/uiSlice";
+import UiStatus from "../../types/UiStatus";
 
 const modalTimeout = 1500;
 

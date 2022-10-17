@@ -4,7 +4,7 @@ import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 import paths from "../../config/paths";
 import updateNewsForm from "../../data/updateNewsForm.schema";
-import useForm from "../../hooks/useForm";
+import useForm from "../../hooks/useForm/useForm";
 import { updateActionCreator } from "../../store/slices/newsSlice";
 import {
   getCurrentNews,

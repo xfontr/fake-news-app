@@ -1,6 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, useState } from "react";
-import FormSchema, { FullAttributes } from "../types/FormSchema";
-import { getClass } from "../utils/getClass/getClass";
+import FormSchema, { FullAttributes } from "../../types/FormSchema";
+import { getClass } from "../../utils/getClass/getClass";
 
 export type ValuesState = Record<string, string | number>;
 

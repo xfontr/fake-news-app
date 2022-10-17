@@ -1,5 +1,5 @@
 import schema from "../../data/updateNewsForm.schema";
-import useForm from "../../hooks/useForm";
+import useForm from "../../hooks/useForm/useForm";
 import {
   createEvent,
   fireEvent,

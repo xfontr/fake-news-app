@@ -1,9 +1,9 @@
 import { renderHook as ReactRenderHook } from "@testing-library/react";
 import React, { ChangeEvent } from "react";
 import { act } from "react-dom/test-utils";
-import updateNewsForm from "../data/updateNewsForm.schema";
-import { renderHook, waitFor } from "../test-utils/customTestingLibrary";
-import FormSchema from "../types/FormSchema";
+import updateNewsForm from "../../data/updateNewsForm.schema";
+import { renderHook, waitFor } from "../../test-utils/customTestingLibrary";
+import FormSchema from "../../types/FormSchema";
 import useForm from "./useForm";
 
 describe("Given a useForm function", () => {

@@ -1,16 +1,16 @@
 import { act } from "react-dom/test-utils";
-import { loadAllActionCreator } from "../store/slices/newsSlice";
-import { setUiActionCreator, UiState } from "../store/slices/uiSlice";
-import { renderHook } from "../test-utils/customTestingLibrary";
-import { mockAuthorList } from "../test-utils/mocks/mockAuthor";
-import { mockNewsList } from "../test-utils/mocks/mockNews";
-import { capitalizeNews } from "../utils/capitalize/capitalize";
+import { loadAllActionCreator } from "../../store/slices/newsSlice";
+import { setUiActionCreator, UiState } from "../../store/slices/uiSlice";
+import { renderHook } from "../../test-utils/customTestingLibrary";
+import { mockAuthorList } from "../../test-utils/mocks/mockAuthor";
+import { mockNewsList } from "../../test-utils/mocks/mockNews";
+import { capitalizeNews } from "../../utils/capitalize/capitalize";
 import useNews from "./useNews";
 
 const mockUseAppDispatch = jest.fn();
 
-jest.mock("../store/hooks", () => ({
-  ...jest.requireActual("../store/hooks"),
+jest.mock("../../store/hooks", () => ({
+  ...jest.requireActual("../../store/hooks"),
   useAppDispatch: () => mockUseAppDispatch,
 }));
 
