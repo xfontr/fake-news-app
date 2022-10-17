@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { setUiActionCreator } from "../store/slices/uiSlice";
 import UiStatus from "../types/UiStatus";
 
 const modalTimeout = 1500;
 
 const useModal = () => {
+  const dispatch = useAppDispatch();
   const { status, message } = useAppSelector(({ ui }) => ui);
   const [localStatus, setLocalStatus] = useState<UiStatus>(status);
 
@@ -20,8 +22,9 @@ const useModal = () => {
 
     setTimeout(() => {
       setLocalStatus("IDLE");
+      dispatch(setUiActionCreator({ status: "IDLE", message: "" }));
     }, modalTimeout);
-  }, [status]);
+  }, [status, dispatch]);
 
   return [message, localStatus];
 };

@@ -39,6 +39,7 @@ describe("Given a getAll function returned from a useNews function", () => {
 
   describe("When called and the news api responds with an error", () => {
     test("Then it should do nothing", async () => {
+      const uiDispatchCalls = 2;
       mockNewsList[0].title = "error";
 
       const {
@@ -51,12 +52,14 @@ describe("Given a getAll function returned from a useNews function", () => {
         getAll();
       });
 
-      expect(mockUseAppDispatch).not.toHaveBeenCalled();
+      expect(mockUseAppDispatch).toHaveBeenCalledTimes(uiDispatchCalls);
     });
   });
 
   describe("When called and the users api responds with an error", () => {
     test("Then it should do nothing", async () => {
+      const uiDispatchCalls = 2;
+
       mockNewsList[0].title = "Test";
       mockAuthorList[0].name = "error";
 
@@ -70,7 +73,7 @@ describe("Given a getAll function returned from a useNews function", () => {
         getAll();
       });
 
-      expect(mockUseAppDispatch).not.toHaveBeenCalled();
+      expect(mockUseAppDispatch).toHaveBeenCalledTimes(uiDispatchCalls);
     });
   });
 });
