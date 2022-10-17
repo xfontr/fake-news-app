@@ -9,7 +9,7 @@ const Modal = (): JSX.Element => {
   const [message, localStatus] = useModal();
 
   const Icon = ({ ...rest }: HTMLAttributes<HTMLDivElement>): JSX.Element => (
-    <div {...rest}>
+    <div {...rest} data-testid={localStatus}>
       {localStatus === "LOADING" && <MdOutlineDownloading />}
       {localStatus === "SUCCESS" && <AiFillCheckCircle />}
       {localStatus === "ERROR" && <BiErrorCircle />}
