@@ -22,6 +22,12 @@
     transform: translate(0);
   }
 
+  &--out {
+    animation-name: slide-out;
+    animation-duration: 0.5s;
+    transform: translate(0);
+  }
+
   &__links {
     display: flex;
     flex-direction: column;
@@ -34,8 +40,14 @@
     font-size: 1.5rem;
     color: colors.$primary;
     cursor: pointer;
+
     @media (min-width: breakpoints.$big) {
       font-size: 2rem;
+    }
+
+    &--small {
+      font-weight: normal;
+      color: colors.$secondary;
     }
   }
 
@@ -48,6 +60,7 @@
     background-color: colors.$primary;
     height: 0.1rem;
   }
+
   &__link:hover::after {
     opacity: 100%;
     width: 100%;
@@ -68,6 +81,7 @@
 .modal-close-area {
   width: 30%;
   height: 100%;
+
   @media (min-width: breakpoints.$big) {
     width: 60%;
   }
@@ -79,5 +93,14 @@
   }
   to {
     transform: translate(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(100%);
   }
 }

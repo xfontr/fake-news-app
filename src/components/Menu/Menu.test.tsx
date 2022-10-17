@@ -9,6 +9,7 @@ import paths from "../../config/paths";
 import { lazy } from "react";
 import userEvent from "@testing-library/user-event";
 import { useLocation } from "react-router-dom";
+import externalLinks from "../../data/externalLinks";
 
 const mockRoutes: RouteType[] = [
   {
@@ -48,7 +49,21 @@ describe("Given a Menu component", () => {
       const totalLinks = screen.getAllByRole("link");
 
       links.forEach((link) => expect(link).toBeInTheDocument());
-      expect(totalLinks).toHaveLength(expectedLinks.length);
+      expect(totalLinks).toHaveLength(
+        externalLinks.length + expectedLinks.length
+      );
+    });
+
+    test("Then it should display a link for each external link in the app data", () => {
+      render(<Menu {...{ routes: mockRoutes, toggleVisibility }} />);
+
+      const expectedLinks = externalLinks.map(({ name }) => name);
+
+      const links = expectedLinks.map((link) =>
+        screen.getByRole("link", { name: link })
+      );
+
+      links.forEach((link) => expect(link).toBeInTheDocument());
     });
   });
 
