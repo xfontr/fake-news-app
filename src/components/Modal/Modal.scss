@@ -4,7 +4,7 @@
 .modal {
   position: fixed;
   width: 20rem;
-  left: calc(50vh - 10rem);
+  left: calc(50vw - 10rem);
   top: spacings.$big;
   background-color: colors.$primary;
   box-shadow: 10px 10px 30px 10px rgba(0, 0, 0, 0.15);

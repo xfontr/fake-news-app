@@ -4,6 +4,7 @@ import INews from "../../types/News";
 import Button from "../Button/Button";
 import { BsPencil } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { setUiActionCreator } from "../../store/slices/uiSlice";
 
 type NewsProps = {
   news: INews;
@@ -16,6 +17,13 @@ const News = ({
 
   const handleDelete = (): void => {
     dispatch(deleteActionCreator(id));
+
+    dispatch(
+      setUiActionCreator({
+        status: "SUCCESS",
+        message: "News deleted",
+      })
+    );
   };
 
   return (

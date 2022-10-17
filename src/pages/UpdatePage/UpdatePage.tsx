@@ -11,6 +11,7 @@ import {
   getUpdatedNews,
   setSchema,
 } from "../../utils/updateUtils/updateUtils";
+import { setUiActionCreator } from "../../store/slices/uiSlice";
 
 const UpdatePage = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -26,6 +27,9 @@ const UpdatePage = (): JSX.Element => {
   const handleUpdate = (): void => {
     dispatch(updateActionCreator(getUpdatedNews(currentNews!, values)));
     navigate(paths.news);
+    dispatch(
+      setUiActionCreator({ status: "SUCCESS", message: "News updated" })
+    );
   };
 
   return (
