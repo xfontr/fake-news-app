@@ -5,6 +5,7 @@ import PageInformation from "../../types/PageInformation";
 import Advertisement from "../Advertisement/Advertisement";
 import PageHeading from "../PageHeading/PageHeading";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import Modal from "../Modal/Modal";
 
 type PageLayoutProps = {
   children: ReactNode;
@@ -13,6 +14,7 @@ type PageLayoutProps = {
 
 export const Layout = ({ children }: PropsWithChildren): JSX.Element => (
   <>
+    <Modal />
     <header className="header">
       <Link to={paths.root}>FakeNews</Link>
       <BurgerMenu />

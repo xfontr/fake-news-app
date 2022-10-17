@@ -1,0 +1,35 @@
+@use "../../sass/variables/spacings";
+@use "../../sass/variables/colors";
+
+.modal {
+  position: fixed;
+  width: 20rem;
+  left: calc(50vh - 10rem);
+  top: spacings.$big;
+  background-color: colors.$primary;
+  box-shadow: 10px 10px 30px 10px rgba(0, 0, 0, 0.15);
+  padding: spacings.$medium;
+  border-radius: spacings.$rad-small;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: spacings.$medium;
+
+  &--error {
+    color: colors.$error;
+  }
+
+  &--success {
+    color: colors.$success;
+  }
+
+  &__icon {
+    line-height: 0;
+    font-size: 2rem;
+  }
+
+  &__message {
+    color: colors.$typography;
+  }
+}
