@@ -6,14 +6,13 @@ const uiInitialState = {
   message: "",
 };
 
+export type UiState = typeof uiInitialState;
+
 const uiSlice = createSlice({
   name: "ui",
   initialState: uiInitialState,
   reducers: {
-    setStatus: (
-      _,
-      { payload: { status, message } }: PayloadAction<typeof uiInitialState>
-    ) => ({
+    setUi: (_, { payload: { status, message } }: PayloadAction<UiState>) => ({
       status,
       message,
     }),
@@ -22,4 +21,4 @@ const uiSlice = createSlice({
 
 export const uiReducer = uiSlice.reducer;
 
-export const { setStatus: setStatusActionCreator } = uiSlice.actions;
+export const { setUi: setUiActionCreator } = uiSlice.actions;
