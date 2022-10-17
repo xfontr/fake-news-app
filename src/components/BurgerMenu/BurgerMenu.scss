@@ -6,6 +6,11 @@
   position: relative;
   z-index: 999;
 
+  &--open {
+    position: fixed;
+    right: 9%;
+  }
+
   ul {
     display: flex;
     flex-direction: column;

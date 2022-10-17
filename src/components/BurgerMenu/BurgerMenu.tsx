@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Menu from "../Menu/Menu";
 import routes from "../../pages";
+import { getClass } from "../../utils/getClass/getClass";
 
 const BurgerMenu = (): JSX.Element => {
   const [isMenuVisible, setVisibility] = useState(false);
@@ -10,7 +11,9 @@ const BurgerMenu = (): JSX.Element => {
   };
 
   return (
-    <nav className="burger">
+    <nav
+      className={getClass("burger", isMenuVisible ? "burger--open" : undefined)}
+    >
       <div
         data-testid="burger__icon"
         className="burger__icon"

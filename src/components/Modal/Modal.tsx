@@ -20,7 +20,9 @@ const Modal = (): JSX.Element => {
     <>
       {localStatus !== "IDLE" && (
         <Portal>
-          <dialog className={`modal modal--${localStatus.toLowerCase()}`}>
+          <dialog
+            className={`modal modal--${localStatus.toLowerCase()} modal--in`}
+          >
             <Icon className="modal__icon" />
             <span className="modal__message">{message}</span>
           </dialog>
