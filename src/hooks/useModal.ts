@@ -9,9 +9,13 @@ const useModal = () => {
   const [localStatus, setLocalStatus] = useState<UiStatus>(status);
 
   useEffect(() => {
-    if (status === "LOADING") {
+    if (status === "LOADING" || status === "IDLE") {
       setLocalStatus(status);
       return;
+    }
+
+    if (status === "ERROR" || status === "SUCCESS") {
+      setLocalStatus(status);
     }
 
     setTimeout(() => {
