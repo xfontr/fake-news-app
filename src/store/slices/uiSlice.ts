@@ -3,7 +3,7 @@ import UiStatus from "../../types/UiStatus";
 
 const uiInitialState = {
   status: "IDLE" as UiStatus,
-  message: "",
+  message: "Loading...",
 };
 
 export type UiState = typeof uiInitialState;
