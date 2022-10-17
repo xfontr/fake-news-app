@@ -15,6 +15,13 @@
   display: flex;
   align-items: center;
   gap: spacings.$medium;
+  transition: 0.2s ease-in;
+
+  &--in {
+    animation-name: crazy-in;
+    animation-duration: 0.3s;
+    transform: translate(0);
+  }
 
   &--error {
     color: colors.$error;
@@ -31,5 +38,14 @@
 
   &__message {
     color: colors.$typography;
+  }
+}
+
+@keyframes crazy-in {
+  from {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(360, 1, 1, 360deg);
   }
 }

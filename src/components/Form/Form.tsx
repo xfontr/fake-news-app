@@ -1,7 +1,7 @@
 import { ValidationResult } from "joi";
 import { FormEvent, FormHTMLAttributes, ReactNode, useState } from "react";
 import formValidationSchema from "../../data/formValidation.schema";
-import { LoadProps, ValuesState } from "../../hooks/useForm";
+import { LoadProps, ValuesState } from "../../hooks/useForm/useForm";
 import FormSchema from "../../types/FormSchema";
 import { validateForm } from "../../utils/validateForm/validateForm";
 import ValidationErrors from "./ValidationErrors/ValidationErrors";

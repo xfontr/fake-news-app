@@ -1,8 +1,13 @@
 @use "../../../sass/variables/colors";
 @use "../../../sass/variables/spacings";
+@use "../../../sass/variables/breakpoints";
 
 .errors {
-  margin-top: spacings.$medium;
+  margin-top: spacings.$big;
+
+  @media (min-width: breakpoints.$big) {
+    max-width: 36rem;
+  }
 
   &__list {
     display: flex;

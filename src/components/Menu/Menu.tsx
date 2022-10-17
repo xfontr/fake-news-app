@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import externalLinks from "../../data/externalLinks";
 import RouteType from "../../types/RouteType";
 
 type MenuProps = {
@@ -14,16 +15,15 @@ const Menu = ({ toggleVisibility, routes }: MenuProps): JSX.Element => (
       onClick={toggleVisibility}
     ></div>
 
-    <section className={"navigation navigation--in"}>
+    <section className={`navigation navigation--in`}>
       <ul className="navigation__links">
         {routes.map((route) => (
           <>
             {!route.hide && route.name && (
-              <li className="navigation__link" key={route.path}>
+              <li key={route.path} className="navigation__link">
                 <Link
                   key={route.name}
                   to={route.path}
-                  className="navigation__link"
                   onClick={() => {
                     toggleVisibility();
                   }}
@@ -33,6 +33,12 @@ const Menu = ({ toggleVisibility, routes }: MenuProps): JSX.Element => (
               </li>
             )}
           </>
+        ))}
+
+        {externalLinks.map(({ href, name }) => (
+          <li key={name} className="navigation__link navigation__link--small">
+            <a {...{ href }}>{name}</a>
+          </li>
         ))}
       </ul>
     </section>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { setUiActionCreator } from "../store/slices/uiSlice";
-import UiStatus from "../types/UiStatus";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { setUiActionCreator } from "../../store/slices/uiSlice";
+import UiStatus from "../../types/UiStatus";
 
 const modalTimeout = 1500;
 
@@ -11,13 +11,10 @@ const useModal = () => {
   const [localStatus, setLocalStatus] = useState<UiStatus>(status);
 
   useEffect(() => {
-    if (status === "LOADING" || status === "IDLE") {
-      setLocalStatus(status);
-      return;
-    }
+    setLocalStatus(status);
 
-    if (status === "ERROR" || status === "SUCCESS") {
-      setLocalStatus(status);
+    if (status === "LOADING" || status === "IDLE") {
+      return;
     }
 
     setTimeout(() => {

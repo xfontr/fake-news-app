@@ -31,7 +31,7 @@ describe("Given a NewsPage component", () => {
       });
 
       mockNewsList[0].title = "error";
-      const loadingMessage = "Loading...";
+      const loadingMessage = "Your news should appear here!";
       render(<NewsPage />);
 
       const loading = screen.getByText(loadingMessage);

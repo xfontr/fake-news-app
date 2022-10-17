@@ -1,5 +1,5 @@
 import Joi, { ObjectSchema, AnySchema, ValidationResult } from "joi";
-import { ValuesState } from "../../hooks/useForm";
+import { ValuesState } from "../../hooks/useForm/useForm";
 
 export const extractSchema = (
   schema: ObjectSchema<unknown>,

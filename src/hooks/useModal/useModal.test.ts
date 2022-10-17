@@ -1,5 +1,5 @@
-import { renderHook } from "../test-utils/customTestingLibrary";
-import UiStatus from "../types/UiStatus";
+import { renderHook } from "../../test-utils/customTestingLibrary";
+import UiStatus from "../../types/UiStatus";
 import useModal from "./useModal";
 
 jest.useFakeTimers();

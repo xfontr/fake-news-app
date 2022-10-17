@@ -1,4 +1,4 @@
-import { ValuesState } from "../../hooks/useForm";
+import { ValuesState } from "../../hooks/useForm/useForm";
 import FormSchema from "../../types/FormSchema";
 import News from "../../types/News";
 

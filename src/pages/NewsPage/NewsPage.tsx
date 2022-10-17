@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAppSelector } from "../../store/hooks";
 import NewsList from "../../components/NewsList/NewsList";
-import useNews from "../../hooks/useNews";
+import useNews from "../../hooks/useNews/useNews";
 
 const NewsPage = (): JSX.Element => {
   const { getAll } = useNews();
@@ -12,7 +12,13 @@ const NewsPage = (): JSX.Element => {
   }, [getAll, news]);
 
   return (
-    <>{news.length ? <NewsList news={news} /> : <span>Loading...</span>}</>
+    <>
+      {news.length ? (
+        <NewsList news={news} />
+      ) : (
+        <span>Your news should appear here!</span>
+      )}
+    </>
   );
 };
 
