@@ -1,7 +1,6 @@
 {
   "name": "cleverpy-test",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "dependencies": {
     "@fontsource/manrope": "^4.5.12",
@@ -55,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.10.0",
     "husky": "^8.0.1",
     "msw": "^0.47.4",
     "sass": "^1.55.0"
