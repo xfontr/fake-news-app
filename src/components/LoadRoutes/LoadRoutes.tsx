@@ -10,6 +10,7 @@ const LoadRoutes = ({ routes }: LoadRoutesProps): JSX.Element => (
   <Routes key="routes">
     {routes.map(({ Page, navigate, pageInformation, path }) => (
       <Route
+        key={path}
         path={path}
         element={
           Page ? (
