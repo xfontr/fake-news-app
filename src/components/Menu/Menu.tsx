@@ -7,6 +7,9 @@ type MenuProps = {
   toggleVisibility: () => void;
 };
 
+const routesToDisplay = (routes: RouteType[]) =>
+  routes.filter((route) => !route.hide && route.name);
+
 const Menu = ({ toggleVisibility, routes }: MenuProps): JSX.Element => (
   <div className="modal-cover">
     <div
@@ -17,22 +20,17 @@ const Menu = ({ toggleVisibility, routes }: MenuProps): JSX.Element => (
 
     <section className={`navigation navigation--in`}>
       <ul className="navigation__links">
-        {routes.map((route) => (
-          <>
-            {!route.hide && route.name && (
-              <li key={route.path} className="navigation__link">
-                <Link
-                  key={route.name}
-                  to={route.path}
-                  onClick={() => {
-                    toggleVisibility();
-                  }}
-                >
-                  {route.name}
-                </Link>
-              </li>
-            )}
-          </>
+        {routesToDisplay(routes).map((route) => (
+          <li key={route.path} className="navigation__link">
+            <Link
+              to={route.path}
+              onClick={() => {
+                toggleVisibility();
+              }}
+            >
+              {route.name}
+            </Link>
+          </li>
         ))}
 
         {externalLinks.map(({ href, name }) => (
