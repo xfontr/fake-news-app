@@ -109,12 +109,13 @@ describe("Given the full FakeNews app", () => {
       cy.get(".errors__message")
         .first()
         .should("have.text", '"email" must be a valid email');
+
       cy.get(".errors__message")
         .last()
         .should("have.text", '"password" is not allowed to be empty');
     });
 
-    it("If the log in form is filled correctly, then it redirect the user", () => {
+    it("If the log in form is filled correctly, then it should redirect the user", () => {
       const { validEmail, validPassword } = {
         validEmail: "name@gmail.com",
         validPassword: "Password{enter}",
@@ -122,6 +123,10 @@ describe("Given the full FakeNews app", () => {
 
       cy.get("#email").type(validEmail);
       cy.get("#password").type(validPassword);
+
+      cy.location().should((location) => {
+        expect(location.pathname).to.eq("/news");
+      });
     });
   });
 });
