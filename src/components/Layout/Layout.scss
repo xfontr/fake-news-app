@@ -1,5 +1,6 @@
 @use "../../sass/variables/spacings";
 @use "../../sass/variables/colors";
+@use "../../sass/variables/breakpoints";
 
 .header {
   display: flex;
@@ -18,12 +19,24 @@
   flex-wrap: wrap;
 
   &__content {
-    width: 75%;
-    padding-right: spacings.$big;
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: spacings.$big;
   }
 
   &__sidebar {
-    width: 25%;
+    width: 100%;
+  }
+
+  @media (min-width: breakpoints.$medium) {
+    &__content {
+      width: 75%;
+      padding-right: spacings.$big;
+    }
+
+    &__sidebar {
+      width: 25%;
+    }
   }
 }
 

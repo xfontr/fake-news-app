@@ -16,11 +16,16 @@
 
   box-shadow: 0 0 0 100vmax colors.$typography;
   clip-path: inset(0 -100vmax);
-  min-height: 70vh;
+
+  min-height: 60vh;
 
   transition: 0.1s ease;
 
-  @media (min-width: breakpoints.$medium) {
-    min-height: 40vh;
+  @media (min-width: breakpoints.$big) {
+    min-height: 50vh;
+  }
+
+  h1 {
+    line-height: 3rem;
   }
 }

@@ -23,9 +23,11 @@ const LogInPage = (): JSX.Element => {
   };
 
   return (
-    <Form {...{ values, loadProps, schema }} onSubmit={handleSubmit}>
-      <Button>Log in</Button>
-    </Form>
+    <section>
+      <Form {...{ values, loadProps, schema }} onSubmit={handleSubmit}>
+        <Button>Log in</Button>
+      </Form>
+    </section>
   );
 };
 

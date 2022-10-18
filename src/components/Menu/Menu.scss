@@ -8,12 +8,13 @@
   height: 100%;
   width: 90%;
   text-align: right;
-  padding: 8rem 9%;
   transform: translate(100%);
   transition: 0.4s;
+  padding: 8rem spacings.$medium;
 
   @media (min-width: breakpoints.$big) {
     width: 60%;
+    padding: 8rem 9%;
   }
 
   &--in {
