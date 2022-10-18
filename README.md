@@ -26,4 +26,4 @@ Figma | Sonar Cloud
 
 ## Links
 
-🌐✨ [Getting Out](https://fake-news-app-cleverpy.netlify.app/)
+🌐✨ [FakeNews](https://fake-news-app-cleverpy.netlify.app/)
